@@ -1,0 +1,25 @@
+<IfModule mod_rewrite.c>
+Options +FollowSymlinks
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /school/index.php/$1 [L]
+
+</IfModule>
+
+# 1 YEAR
+#<FilesMatch "\.(ico|pdf|swf|eot|ttf|woff|svg)$">
+#Header set Cache-Control "max-age=29030400, public"
+#</FilesMatch>
+
+# 1 WEEK
+#<FilesMatch "\.(css|js|jpg|jpeg|png|gif)$">
+#Header set Cache-Control "max-age=604800, public"
+#</FilesMatch>
+
+# NEVER CACHE
+#<FilesMatch "\.(html|htm|php)$">
+#Header set Cache-Control "max-age=0, no-store, no-cache, private, must-revalidate"
+#Header set Pragma "no-cache"
+#</FilesMatch>
