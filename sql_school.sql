@@ -33,7 +33,7 @@ CREATE TABLE `banner` (
   `date_added` datetime NOT NULL default '0000-00-00 00:00:00',
   `date_modified` datetime NOT NULL default '0000-00-00 00:00:00',
   PRIMARY KEY  (`banner_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 -- 
 -- dump ตาราง `banner`
@@ -43,6 +43,7 @@ INSERT INTO `banner` VALUES (1, 2, 'Banner2', 'Desc2', 'Desc2', 'thumb/53929dcba
 INSERT INTO `banner` VALUES (2, 1, 'Banner1', 'Desc1', 'Desc1', 'thumb/538ab821767bc_thumb.jpg', '538ab821767bc.jpg', 'link1', 2, 0, '2014-06-01 13:20:33', '0000-00-00 00:00:00');
 INSERT INTO `banner` VALUES (3, 3, 'Banner3', 'Desc3', 'Desc3', 'thumb/538ab87e2a4c0_thumb.jpg', '538ab87e2a4c0.jpg', 'link3', 3, 0, '2014-06-01 13:22:06', '0000-00-00 00:00:00');
 INSERT INTO `banner` VALUES (6, 4, 'Banner4', 'Desc4', 'Desc4', 'thumb/53929dfbe8a25_thumb.jpg', '53929dfbe8a25.jpg', 'link4', 0, 0, '2014-06-07 13:07:08', '0000-00-00 00:00:00');
+INSERT INTO `banner` VALUES (8, 3, 'Banner5', 'Desc5', 'Desc5', 'thumb/53afb1f3ec5c4_thumb.gif', '53afb1f3ec5c4.gif', 'link5', 0, 0, '2014-06-29 14:28:04', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -68,6 +69,62 @@ INSERT INTO `banner_category` VALUES (4, 'Banner ด้านล่าง');
 -- --------------------------------------------------------
 
 -- 
+-- โครงสร้างตาราง `calendar`
+-- 
+
+CREATE TABLE `calendar` (
+  `calendar_id` int(11) NOT NULL auto_increment,
+  `title` varchar(255) NOT NULL,
+  `link` varchar(255) NOT NULL,
+  `startdate` datetime NOT NULL default '0000-00-00 00:00:00',
+  `enddate` datetime NOT NULL default '0000-00-00 00:00:00',
+  `date_added` datetime NOT NULL default '0000-00-00 00:00:00',
+  `date_modified` datetime NOT NULL default '0000-00-00 00:00:00',
+  PRIMARY KEY  (`calendar_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+
+-- 
+-- dump ตาราง `calendar`
+-- 
+
+INSERT INTO `calendar` VALUES (1, 'test1', '', '2014-06-15 10:00:00', '2014-06-16 12:00:00', '2014-06-29 10:00:00', '0000-00-00 00:00:00');
+INSERT INTO `calendar` VALUES (2, 'test2', '', '2014-06-20 10:00:00', '0000-00-00 00:00:00', '2014-06-29 10:00:00', '0000-00-00 00:00:00');
+INSERT INTO `calendar` VALUES (3, 'test3', '', '2014-06-30 11:55:00', '0000-00-00 00:00:00', '2014-06-29 12:11:40', '0000-00-00 00:00:00');
+INSERT INTO `calendar` VALUES (5, 'test4', '', '2014-06-25 11:55:00', '2014-06-28 11:00:00', '2014-06-29 12:27:18', '0000-00-00 00:00:00');
+INSERT INTO `calendar` VALUES (8, 'test5', 'https://www.facebook.com/', '2014-06-01 00:00:00', '2014-06-07 00:00:00', '2014-06-29 12:32:27', '0000-00-00 00:00:00');
+INSERT INTO `calendar` VALUES (10, 'test6', 'http://www.trueplookpanya.com', '2014-06-09 00:00:00', '2014-06-08 12:00:00', '2014-06-29 12:36:52', '0000-00-00 00:00:00');
+INSERT INTO `calendar` VALUES (11, 'test7', '', '2014-06-14 13:55:00', '0000-00-00 00:00:00', '2014-06-29 13:59:52', '0000-00-00 00:00:00');
+INSERT INTO `calendar` VALUES (12, 'test8', '', '2014-05-01 00:00:00', '2014-05-31 00:00:00', '2014-06-29 14:14:03', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+-- 
+-- โครงสร้างตาราง `constants`
+-- 
+
+CREATE TABLE `constants` (
+  `key` varchar(255) default NULL,
+  `value` varchar(255) default NULL,
+  `type` varchar(255) default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- 
+-- dump ตาราง `constants`
+-- 
+
+INSERT INTO `constants` VALUES ('2', 'ครู ค.ศ. 1', 'position');
+INSERT INTO `constants` VALUES ('3', 'ครู ค.ศ. 2', 'position');
+INSERT INTO `constants` VALUES ('4', 'ครู ค.ศ. 3', 'position');
+INSERT INTO `constants` VALUES ('5', 'ครู ค.ศ. 4', 'position');
+INSERT INTO `constants` VALUES ('6', 'ครู ค.ศ. 5', 'position');
+INSERT INTO `constants` VALUES ('7', 'อื่นๆ', 'position');
+INSERT INTO `constants` VALUES ('1', 'ครูผู้ช่วย', 'position');
+INSERT INTO `constants` VALUES ('1', 'ข้าราชการครู', 'stafftype');
+INSERT INTO `constants` VALUES ('2', 'อื่นๆ', 'stafftype');
+
+-- --------------------------------------------------------
+
+-- 
 -- โครงสร้างตาราง `director`
 -- 
 
@@ -82,14 +139,68 @@ CREATE TABLE `director` (
   `mobile` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
   `description` text NOT NULL,
+  `thumb` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
-  `cdate` datetime NOT NULL default '0000-00-00 00:00:00',
-  `udate` datetime NOT NULL default '0000-00-00 00:00:00',
+  `sort_order` int(11) NOT NULL default '0',
+  `status` smallint(1) NOT NULL default '0',
+  `date_added` datetime NOT NULL default '0000-00-00 00:00:00',
+  `date_modified` datetime NOT NULL default '0000-00-00 00:00:00',
   PRIMARY KEY  (`director_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 -- 
 -- dump ตาราง `director`
+-- 
+
+INSERT INTO `director` VALUES (3, 'สมชาย', 'ปกครองอยู่', '2014-06-27', '2014-06-09', '2014-05-07', '2/22', '0831391397', 'abc@a.com', '<p>content</p>\r\n', 'thumb/53a6fb2bb3f1b_thumb.jpg', '53a6fb2bb3f1b.jpg', 2, 1, '2014-06-22 23:50:03', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+-- 
+-- โครงสร้างตาราง `file`
+-- 
+
+CREATE TABLE `file` (
+  `file_id` int(11) NOT NULL auto_increment,
+  `folder_id` int(11) NOT NULL default '0',
+  `uni` varchar(50) collate utf8_unicode_ci NOT NULL default '',
+  `user_id` smallint(5) NOT NULL default '0',
+  `new_filename` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `original_filename` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `directory` text collate utf8_unicode_ci NOT NULL,
+  `text` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `cdate` datetime NOT NULL default '0000-00-00 00:00:00',
+  `udate` datetime NOT NULL default '0000-00-00 00:00:00',
+  PRIMARY KEY  (`file_id`,`uni`),
+  KEY `Index 1` (`folder_id`,`user_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- 
+-- dump ตาราง `file`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- โครงสร้างตาราง `folder`
+-- 
+
+CREATE TABLE `folder` (
+  `folder_id` int(11) NOT NULL auto_increment,
+  `folder_name` text collate utf8_unicode_ci NOT NULL,
+  `folder_directory` text collate utf8_unicode_ci,
+  `name` varchar(255) collate utf8_unicode_ci NOT NULL default '',
+  `description` text collate utf8_unicode_ci NOT NULL,
+  `parent_id` int(11) default '0',
+  `sort` int(3) NOT NULL default '0',
+  `status` smallint(1) NOT NULL default '0',
+  PRIMARY KEY  (`folder_id`),
+  KEY `parent_id` (`parent_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+-- 
+-- dump ตาราง `folder`
 -- 
 
 
@@ -105,7 +216,7 @@ CREATE TABLE `gallery` (
   `thumb` varchar(255) default NULL,
   `image` varchar(255) default NULL,
   PRIMARY KEY  (`gallery_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 -- 
 -- dump ตาราง `gallery`
@@ -122,6 +233,33 @@ INSERT INTO `gallery` VALUES (12, 7, 'thumb/5399da260f450_thumb.jpg', '5399da260
 INSERT INTO `gallery` VALUES (13, 7, 'thumb/5399db81eeea5_thumb.jpg', '5399db81eeea5.jpg');
 INSERT INTO `gallery` VALUES (14, 7, 'thumb/5399db81f0542_thumb.jpg', '5399db81f0542.jpg');
 INSERT INTO `gallery` VALUES (15, 7, 'thumb/5399db81f2eb9_thumb.jpg', '5399db81f2eb9.jpg');
+INSERT INTO `gallery` VALUES (16, 8, 'thumb/53af7a14ebbd1_thumb.jpg', '53af7a14ebbd1.jpg');
+
+-- --------------------------------------------------------
+
+-- 
+-- โครงสร้างตาราง `intro`
+-- 
+
+CREATE TABLE `intro` (
+  `intro_id` int(11) NOT NULL auto_increment,
+  `title` varchar(255) NOT NULL,
+  `description` longtext NOT NULL,
+  `image` varchar(255) default NULL,
+  `image_btn` varchar(255) default NULL,
+  `image_bg` varchar(255) default NULL,
+  `bg_color` varchar(50) NOT NULL,
+  `sort_order` int(11) NOT NULL default '0',
+  `status` smallint(1) NOT NULL default '0',
+  `date_added` datetime NOT NULL default '0000-00-00 00:00:00',
+  `date_modified` datetime NOT NULL default '0000-00-00 00:00:00',
+  PRIMARY KEY  (`intro_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+-- 
+-- dump ตาราง `intro`
+-- 
+
 
 -- --------------------------------------------------------
 
@@ -154,16 +292,36 @@ CREATE TABLE `posts` (
   PRIMARY KEY  (`post_id`),
   KEY `post_parent` (`post_parent`),
   KEY `author` (`author`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 -- 
 -- dump ตาราง `posts`
 -- 
 
-INSERT INTO `posts` VALUES (7, 0, 'Post4', '', '<p>Post4</p>\r\n', '', 'thumb/5393feb5c395a_thumb.png', '5393feb5c395a.png', '<iframe width="560" height="315" src="//www.youtube.com/embed/3ZNmY_Dzjkc" frameborder="0" allowfullscreen></iframe>', 'E', '', 0, 0, 0, 0, 'post', 0, '2014-06-08 14:28:49', '0000-00-00 00:00:00', 0, 0);
+INSERT INTO `posts` VALUES (7, 0, 'Post4', '', '<p>Post4</p>\r\n', '', 'thumb/5393feb5c395a_thumb.png', '5393feb5c395a.png', '<iframe width="560" height="315" src="//www.youtube.com/embed/3ZNmY_Dzjkc" frameborder="0" allowfullscreen></iframe>', 'E', '', 0, 0, 0, 0, 'page', 0, '2014-06-23 01:03:06', '0000-00-00 00:00:00', 0, 0);
 INSERT INTO `posts` VALUES (2, 0, 'Post2', '', '<p>Post2</p>\r\n', '', NULL, NULL, '<iframe width="560" height="315" src="//www.youtube.com/embed/3ZNmY_Dzjkc" frameborder="0" allowfullscreen></iframe>', 'E', '', 0, 0, 0, 0, 'post', 0, '2014-06-08 11:55:01', '0000-00-00 00:00:00', 0, 0);
 INSERT INTO `posts` VALUES (5, 0, 'Post1', '', '<p>Post1</p>\r\n', '', 'thumb/5393faf4134fb_thumb.png', '5393faf4134fb.png', '', '', '', 0, 0, 0, 0, 'posts', 0, '2014-06-08 13:56:04', '0000-00-00 00:00:00', 0, 0);
 INSERT INTO `posts` VALUES (6, 0, 'Post3', '', '<p>Post3</p>\r\n', '', NULL, NULL, '5393fb0cb8504.flv', 'F', '', 0, 0, 0, 0, 'posts', 0, '2014-06-08 13:56:28', '0000-00-00 00:00:00', 0, 0);
+INSERT INTO `posts` VALUES (8, 0, 'Post5', '', '<p>Post5</p>\r\n', '', 'thumb/53a70c9387ee7_thumb.jpg', '53a70c9387ee7.jpg', '<iframe width="560" height="315" src="//www.youtube.com/embed/3ZNmY_Dzjkc" frameborder="0" allowfullscreen></iframe>', 'E', '', 2, 0, 0, 0, 'post', 0, '2014-06-23 01:04:19', '0000-00-00 00:00:00', 0, 0);
+
+-- --------------------------------------------------------
+
+-- 
+-- โครงสร้างตาราง `post_category`
+-- 
+
+CREATE TABLE `post_category` (
+  `post_category_id` int(11) NOT NULL auto_increment,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY  (`post_category_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+-- 
+-- dump ตาราง `post_category`
+-- 
+
+INSERT INTO `post_category` VALUES (2, 'ข่าวประชาสัมพันธ์');
+INSERT INTO `post_category` VALUES (3, 'สาระน่ารู้');
 
 -- --------------------------------------------------------
 
@@ -215,30 +373,50 @@ CREATE TABLE `staff` (
   `firstname` varchar(255) NOT NULL,
   `lastname` varchar(255) NOT NULL,
   `gender` enum('M','F') default NULL,
+  `position` varchar(50) NOT NULL,
+  `position_oth` text NOT NULL,
+  `qualification` text NOT NULL COMMENT 'วุฒิ',
+  `major` text NOT NULL COMMENT 'วิชาเอก',
+  `class` varchar(50) NOT NULL COMMENT 'ประเภทบุคลากร',
+  `class_oth` text NOT NULL,
+  `birthday` date NOT NULL default '0000-00-00',
+  `address` text NOT NULL,
+  `mobile` varchar(25) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `thumb` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `sort_order` int(10) NOT NULL default '0',
+  `status` smallint(1) NOT NULL default '0',
+  `date_added` datetime NOT NULL default '0000-00-00 00:00:00',
+  `date_modified` datetime NOT NULL default '0000-00-00 00:00:00',
   PRIMARY KEY  (`staff_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 -- 
 -- dump ตาราง `staff`
 -- 
 
+INSERT INTO `staff` VALUES (1, 1, 'เฉลิมชัย', 'แซ่อึ้ง', 'M', '7', 'รองผอ.', 'ป.โท', 'เทคโนโลยีสารสนเทศ', '1', '', '1998-10-13', '5/2', '0831391397', 'peng_rb_116@hotmail.com', 'thumb/53a6d282a73dd_thumb.jpg', '53a6d282a73dd.jpg', 0, 0, '2014-06-22 20:56:34', '0000-00-00 00:00:00');
+INSERT INTO `staff` VALUES (2, 2, 'วณิชยา', 'มาลาสิน', 'F', '6', '', 'ป.ตรี', 'ศิลปศาสตร์', '2', 'เจ้าหน้าที่', '0000-00-00', '5/2', '0831391397', 'evemalasin@hotmail.com', 'thumb/53a6d59e073f4_thumb.jpg', '53a6d59e073f4.jpg', 1, 1, '2014-06-22 20:59:08', '2014-06-22 21:09:50');
 
 -- --------------------------------------------------------
 
 -- 
--- โครงสร้างตาราง `staff_catygory`
+-- โครงสร้างตาราง `staff_category`
 -- 
 
-CREATE TABLE `staff_catygory` (
-  `staff_catygory_id` int(11) NOT NULL auto_increment,
+CREATE TABLE `staff_category` (
+  `staff_category_id` int(11) NOT NULL auto_increment,
   `name` varchar(255) NOT NULL,
-  PRIMARY KEY  (`staff_catygory_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  PRIMARY KEY  (`staff_category_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 -- 
--- dump ตาราง `staff_catygory`
+-- dump ตาราง `staff_category`
 -- 
 
+INSERT INTO `staff_category` VALUES (1, 'กลุ่มคณิตศาสตร์');
+INSERT INTO `staff_category` VALUES (2, 'กลุ่มภาษาไทย');
 
 -- --------------------------------------------------------
 

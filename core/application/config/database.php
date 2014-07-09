@@ -48,6 +48,11 @@
 $active_group = 'default';
 $active_record = TRUE;
 
+//$db['default']['hostname'] = 'www.ekachai-battery.com/';
+//$db['default']['username'] = 'school';
+//$db['default']['password'] = 'pDk6a2^7';
+//$db['default']['database'] = 'school';
+
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'root';
 $db['default']['password'] = '1234';
