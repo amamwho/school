@@ -46,6 +46,10 @@ $route['cms/cms_document/download'] = "cms/cms_document/index/D";
 $route['cms/cms_document/download/(:num)'] = "cms/cms_document/index/D/$1";
 $route['cms/cms_document/inside'] = "cms/cms_document/index/I";
 $route['cms/cms_document/inside/(:num)'] = "cms/cms_document/index/I/$1";
+$route['cms/cms_document/insertDownload'] = "cms/cms_document/insert/D";
+$route['cms/cms_document/insertInside'] = "cms/cms_document/insert/I";
+$route['cms/cms_document/updateDownload/(:num)'] = "cms/cms_document/update/D/$1";
+$route['cms/cms_document/updateInside/(:num)'] = "cms/cms_document/update/I/$1";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

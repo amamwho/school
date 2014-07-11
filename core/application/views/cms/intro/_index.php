@@ -36,7 +36,7 @@
                                     </select>
                                 </td>
                                 <td class="status filter">
-                                    <a href="#" class="btn btn-sm yellow" onclick="filter();">
+                                    <a class="btn btn-sm yellow" onclick="filter();">
                                         <i class="fa fa-search"></i>
                                     </a>
                                 </td>

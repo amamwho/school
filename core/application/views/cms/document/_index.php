@@ -10,7 +10,7 @@
             <div class="portlet-body">
                 <div class="table-toolbar">
                     <div class="btn-group">
-                        <a class="btn btn-primary" href="<?= site_url('cms/cms_document/insert'); ?>">
+                        <a class="btn btn-primary" href="<?= site_url('cms/cms_document/insert'.ucfirst($type_name)); ?>">
                             <i class="fa fa-file-o"></i>
                             เพิ่ม
                         </a>
@@ -35,7 +35,7 @@
                                     </select>
                                 </td>
                                 <td class="status filter">
-                                    <a href="#" class="btn btn-sm yellow" onclick="filter();">
+                                    <a class="btn btn-sm yellow" onclick="filter();">
                                         <i class="fa fa-search"></i>
                                     </a>
                                 </td>
@@ -65,10 +65,10 @@
                                     <tr class="<?= ($i % 2 == 1) ? 'odd gradeX' : 'even gradeC'; ?>">
                                         <td><input type="checkbox" name="document[]" value="<?= $dl['document_id']; ?>" /></td>
                                         <td><?= $dl['name']; ?></td>
-                                        <td><?= $dl['link']; ?></td>
+                                        <td><?= (isset($dl['file']) and $dl['file']) ? '<a href="'.site_url('loadFile/'.$dl['raw']).'" target="_blank"><i class="fa fa-link"></i> ดาวน์โหลด</a>' : ''; ?></td>
                                         <td class="status"><?= ($dl['status']) ? 'ทำงาน' : 'ไม่ทำงาน'; ?></td>
                                         <td class="status">
-                                            <a class="btn default" href="<?= site_url('cms/cms_document/update/' . $dl['document_id']); ?>">
+                                            <a class="btn default" href="<?= site_url('cms/cms_document/update'.ucfirst($type_name).'/' . $dl['document_id']); ?>">
                                                 <i class="fa fa-edit"></i>
                                                 แก้ไข
                                             </a>
@@ -90,7 +90,7 @@
 </div>
 <script type="text/javascript">
     function filter() {
-        var current_url = "<?= site_url('cms/cms_intro/index'); ?>?";
+        var current_url = "<?= site_url('cms/cms_document/'.$type_name); ?>?";
         if($('input#name').val()) {
             current_url += 'name='+$('input#name').val()+'&';
         }

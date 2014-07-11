@@ -27,7 +27,7 @@
                                 <td class="filter"></td>
                                 <td class="filter"><input type="text" name="title" class="form-control input-sm" id="title" placeholder="คำที่ต้องการค้นหา" <?= (isset($filter['title']) and $filter['title']) ? 'value="' . $filter['title'] . '"' : ''; ?> /></td>
                                 <td class="status filter">
-                                    <a href="#" class="btn btn-sm yellow" onclick="filter();">
+                                    <a class="btn btn-sm yellow" onclick="filter();">
                                         <i class="fa fa-search"></i>
                                     </a>
                                 </td>

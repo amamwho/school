@@ -22,136 +22,99 @@
                 <form method="post" enctype="multipart/form-data" class="form-horizontal">
                     <div class="form-body">
                         <div class="form-group">
-                            <label class="col-md-3 control-label" for="title">ชื่อ *</label>
+                            <label class="col-md-3 control-label" for="name">ชื่อ *</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="title" id="title" <?= (isset($banner_data['title']) and $banner_data['title']) ? 'value="' . $banner_data['title'] . '"' : ''; ?>>
+                                <input type="text" class="form-control" name="name" id="title" <?= (isset($document_data['name']) and $document_data['name']) ? 'value="' . $document_data['name'] . '"' : ''; ?>>
                             </div>
                         </div>
-                        <div class="form-group vdo-file">
-                            <label class="col-md-3"></label>
-                            <div class="col-md-6">
-                                <?= (isset($post_data['file']) and $post_data['file']) ? '<div class="field" id="file"><label></label><a class="link-vdo" href="' . $this->vdo_path . $post_data['vdo'] . '" target="_blank">' . $post_data['vdo'] . '</a><a class="btn red" title="ลบ" id="del_vdo"><i class="fa fa-trash-o"></i> Delete</a></div><input id="del_vdo" type="hidden" name="del_vdo" value="0" />' : ''; ?>
-                            </div>
-                        </div>
-                        <div class="form-group vdo-file">
-                            <label class="col-md-3 control-label" for="vdo_file">ไฟล์เอกสาร *</label>
-                            <div class="col-md-6">
-                                <div class="fileinput fileinput-new" data-provides="fileinput">
-                                    <div class="input-group">
-                                        <div class="form-control uneditable-input span3" data-trigger="fileinput">
-                                            <i class="fa fa-file fileinput-exists"></i>&nbsp;
-                                            <span class="fileinput-filename">
-                                            </span>
-                                        </div>
-                                        <span class="input-group-addon btn default btn-file">
-                                            <span class="fileinput-new">
-                                                Select file
-                                            </span>
-                                            <span class="fileinput-exists">
-                                                Change
-                                            </span>
-                                            <input type="file" name="" id="vdo_file">
-                                        </span>
-                                        <a href="#" class="input-group-addon btn default fileinput-exists" data-dismiss="fileinput">
-                                            Remove
-                                        </a>
-                                    </div>
+                        <?php if(isset($action) and $action == 'update') { ?>
+                            <div class="form-group vdo-file">
+                                <label class="col-md-3 control-label" for="file">ไฟล์เอกสาร</label>
+                                <div class="col-md-6">
+                                    <p class="help-block">
+                                        <a href="<?= site_url('loadFile/'.$document_data['raw']);?>" target="_blank"><i class="fa fa-link"></i> <?= $document_data['original_filename']; ?></a>
+                                    </p>
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-3 control-label" for="banner_category_id">หมวดหมู่ *</label>
-                            <div class="col-md-6">
-                                <style> option[disabled] { display:none; } </style>
-                                <select class="form-control" name="banner_category_id" id="banner_category_id">
-                                    <option disabled <?= (empty($banner_data['banner_category_id'])) ? 'selected' : ''; ?>>เลือกหมวดหมู่</option>
-                                    <?php if(isset($banner_category) and $banner_category) { ?>
-                                        <?php foreach ($banner_category as $value_bc) { ?>
-                                    <option value="<?= $value_bc['banner_category_id']; ?>" <?= (isset($banner_data['banner_category_id']) and $banner_data['banner_category_id'] == $value_bc['banner_category_id']) ? 'selected' : ''; ?>><?= $value_bc['cate_name']; ?></option>
-                                        <?php } ?>
-                                    <?php } ?>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-3"></label>
-                            <div class="col-md-6">
-                                <?= (isset($banner_data['thumb']) and $banner_data['thumb']) ? '<div class="field" id="thumb"><label></label><img class="form-thumb" src="' . getImagePath($this->images_path_banner . $banner_data['thumb']) . '" /><a class="btn red" title="ลบ" id="del_img"><i class="fa fa-trash-o"></i> Delete</a></div><input id="del" type="hidden" name="del" value="0" />' : ''; ?>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-3 control-label" for="image">รูปภาพ</label>
-                            <div class="col-md-6">
-                                <?/*<input name="image" type="file" id="image">*/?>
-                                <div class="fileinput fileinput-new" data-provides="fileinput">
-                                    <div class="input-group">
-                                        <div class="form-control uneditable-input span3" data-trigger="fileinput">
-                                            <i class="fa fa-file fileinput-exists"></i>&nbsp;
-                                            <span class="fileinput-filename">
+                        <?php } else {?>
+                            <div class="form-group vdo-file">
+                                <label class="col-md-3 control-label" for="file">ไฟล์เอกสาร *</label>
+                                <div class="col-md-6">
+                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                        <div class="input-group">
+                                            <div class="form-control uneditable-input span3" data-trigger="fileinput">
+                                                <i class="fa fa-file fileinput-exists"></i>&nbsp;
+                                                <span class="fileinput-filename">
+                                                </span>
+                                            </div>
+                                            <span class="input-group-addon btn default btn-file">
+                                                <span class="fileinput-new">
+                                                    Select file
+                                                </span>
+                                                <span class="fileinput-exists">
+                                                    Change
+                                                </span>
+                                                <input type="file" name="file" id="file">
                                             </span>
+                                            <a href="#" class="input-group-addon btn default fileinput-exists" data-dismiss="fileinput">
+                                                Remove
+                                            </a>
                                         </div>
-                                        <span class="input-group-addon btn default btn-file">
-                                            <span class="fileinput-new">
-                                                Select file
-                                            </span>
-                                            <span class="fileinput-exists">
-                                                Change
-                                            </span>
-                                            <input type="file" name="image" id="image">
-                                        </span>
-                                        <a href="#" class="input-group-addon btn default fileinput-exists" data-dismiss="fileinput">
-                                            Remove
-                                        </a>
                                     </div>
+                                    <p class="help-block">เฉพาะไฟล์ .doc|.docx|.xls|.xlsx|.pdf|.ppt|.rar|.zip ขนาดไม่เกิน 3MB</p>
                                 </div>
-                                <p class="help-block">917px * 375px</p>
+                            </div>
+                        <?php } ?>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="password">รหัสผ่าน</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="password" id="password" <?= (isset($document_data['password']) and $document_data['password']) ? 'value="' . $this->encrypt->decode($document_data['password']) . '"' : ''; ?>>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <?/*<div class="form-group">
                             <label class="col-md-3 control-label" for="link">link</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="link" id="link" <?= (isset($banner_data['link']) and $banner_data['link']) ? 'value="' . $banner_data['link'] . '"' : ''; ?>>
-                            </div>
+                                <input type="text" class="form-control" name="link" id="link" <?= (isset($document_data['link']) and $document_data['link']) ? 'value="' . $document_data['link'] . '"' : ''; ?>>
+                            <?/*</div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-md-3 control-label" for="short_description">คำอธิบายสั้นๆ</label>
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" name="short_description" id="short_description" <?= (isset($banner_data['short_description']) and $banner_data['short_description']) ? 'value="' . $banner_data['short_description'] . '"' : ''; ?>>
+                        */?>
+                        <?php if(isset($type) and $type == 'I') { ?>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="banner_category_id">หมวดหมู่ *</label>
+                                <div class="col-md-6">
+                                    <style> option[disabled] { display:none; } </style>
+                                    <select class="form-control" name="banner_category_id" id="banner_category_id">
+                                        <option disabled <?= (empty($document_data['banner_category_id'])) ? 'selected' : ''; ?>>เลือกหมวดหมู่</option>
+                                        <?php if(isset($banner_category) and $banner_category) { ?>
+                                            <?php foreach ($banner_category as $value_bc) { ?>
+                                        <option value="<?= $value_bc['banner_category_id']; ?>" <?= (isset($document_data['banner_category_id']) and $document_data['banner_category_id'] == $value_bc['banner_category_id']) ? 'selected' : ''; ?>><?= $value_bc['cate_name']; ?></option>
+                                            <?php } ?>
+                                        <?php } ?>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-3 control-label" for="description">รายละเอียด</label>
-                            <div class="col-md-6">
-                                <textarea class="form-control" rows="3" name="description" id="description"><?= (isset($banner_data['description']) and $banner_data['description']) ? $banner_data['description'] : ''; ?></textarea>
-                            </div>
-                        </div>
+                        <?php } ?>
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="status1">แสดง</label>
                             <div class="col-md-6">
                                 <div class="radio-list">
                                     <label>
                                         <div class="radio" id="uniform-status1">
-                                            <input type="radio" name="status" value="0" id="status1" <?= (!isset($banner_data['status']) or $banner_data['status'] == 0) ? 'checked="checked"' : ''; ?>>
+                                            <input type="radio" name="status" value="0" id="status1" <?= (!isset($document_data['status']) or $document_data['status'] == 0) ? 'checked="checked"' : ''; ?>>
                                         </div> ไม่ทำงาน 
                                     </label>
                                     <label>
                                         <div class="radio" id="uniform-status2">
-                                            <input type="radio" name="status" value="1" id="status2" <?= (isset($banner_data['status']) and $banner_data['status'] == 1) ? 'checked="checked"' : ''; ?>>
+                                            <input type="radio" name="status" value="1" id="status2" <?= (isset($document_data['status']) and $document_data['status'] == 1) ? 'checked="checked"' : ''; ?>>
                                         </div> ทำงาน
                                     </label>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-md-3 control-label" for="sort_order">ลำดับการแสดง</label>
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" name="sort_order" id="sort_order" value="<?= (isset($banner_data['sort_order']) and $banner_data['sort_order']) ? $banner_data['sort_order'] : '0'; ?>">
-                            </div>
-                        </div>
                         <div class="form-actions fluid action-full">
                             <div class="col-md-offset-3 col-md-9">
                                 <button type="submit" class="btn green">Submit</button>
-                                <a href="<?= site_url('cms/cms_banner'); ?>" class="btn default">Cancel</a>
+                                <a href="<?= site_url('cms/cms_document/'.$type_name); ?>" class="btn default">Cancel</a>
                             </div>
                         </div>
                 </form>
