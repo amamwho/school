@@ -241,12 +241,29 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="<?= (isset($menu_active) and $menu_active == 'file') ? 'active' : ''; ?>">
-                            <a href="<?= site_url('cms/cms_file'); ?>">
+                        <li class="<?= (isset($menu_active) and $menu_active == 'document') ? 'active' : ''; ?>">
+                            <a href="javascript:;">
                                 <i class="fa fa-folder-open-o"></i>
                                 <span class="title">เอกสาร</span>
-                                <span class="selected"></span>
+                                <span class="arrow ">
+                                </span>
                             </a>
+                            <ul class="sub-menu">
+                                <li class="<?= (isset($sub_menu_active) and $sub_menu_active == 'download') ? 'active' : ''; ?>">
+                                    <a href="<?= site_url('cms/cms_document/download'); ?>">
+                                        <i class="fa fa-file-o"></i>
+                                        <span class="title">เอกสารดาวน์โหลด</span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+                                <li class="<?= (isset($sub_menu_active) and $sub_menu_active == 'inside') ? 'active' : ''; ?>">
+                                    <a href="<?= site_url('cms/cms_document/inside'); ?>">
+                                        <i class="fa fa-file-o"></i>
+                                        <span class="title">เอกสารภายใน</span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="<?= (isset($menu_active) and $menu_active == 'event') ? 'active' : ''; ?>">
                             <a href="<?= site_url('cms/cms_event'); ?>">

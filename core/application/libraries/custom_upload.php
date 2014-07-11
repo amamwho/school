@@ -27,6 +27,21 @@ class custom_upload {
         }
     }
 
+    function uploadFile($input, $new_filename = '') {
+        if ($new_filename)
+            $this->config['file_name'] = $new_filename;
+        $this->config['allowed_types'] = 'mp4|flv|mp3|wmv|doc|xls|pdf|ppt|rar|zip';
+        $this->config['max_size'] = '500000';
+        $this->obj->load->library('upload');
+        $this->obj->upload->initialize($this->config);
+        if (!$this->obj->upload->do_upload($input)) {
+            return array($this->obj->upload->display_errors());
+        } else {
+            $data = $this->obj->upload->data();
+            return $data;
+        }
+    }
+    
     function uploadVDO($input, $new_filename = '') {
         if ($new_filename)
             $this->config['file_name'] = $new_filename;
