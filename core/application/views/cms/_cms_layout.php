@@ -7,7 +7,7 @@
     <!-- BEGIN HEAD -->
     <head>
         <meta charset="utf-8"/>
-        <title>CMS Template</title>
+        <title>CMS | School</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport"/>
         <meta content="" name="description"/>
@@ -104,8 +104,10 @@
             <!-- BEGIN TOP NAVIGATION BAR -->
             <div class="header-inner">
                 <!-- BEGIN LOGO -->
-                <a class="navbar-brand" href="index.html">
-                    <img src="assets/cms/metronic/img/logo.png" alt="logo" class="img-responsive"/>
+                <a class="navbar-brand" href="<?= site_url('cms/cms_dashboard'); ?>">
+                    <h3 style="margin: -8px 0 0 15px">
+                        <span style="color: #fff;">CMS | </span><span style="color: #FF3333">School</span>
+                    </h3>
                 </a>
                 <!-- END LOGO -->
                 <!-- BEGIN RESPONSIVE MENU TOGGLER -->
@@ -118,9 +120,9 @@
                     <!-- BEGIN USER LOGIN DROPDOWN -->
                     <li class="dropdown user">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                            <img alt="" src="assets/cms/metronic/img/avatar1_small.jpg"/>
+                            <i class="fa fa-user" style="font-size: 20px; margin-top: 9px;"></i>
                             <span class="username">
-                                Xxx Xxxxx-xx
+                                <?= (isset($authen['username']) and $authen['username']) ? $authen['username'] : ''; ?>
                             </span>
                             <i class="fa fa-angle-down"></i>
                         </a>
@@ -136,7 +138,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="login.html">
+                                <a href="<?= site_url('cms/cms_authen/logout'); ?>">
                                     <i class="fa fa-key"></i> Log Out
                                 </a>
                             </li>
@@ -272,50 +274,11 @@
                                 <span class="selected"></span>
                             </a>
                         </li>
-                        <li>
-                            <a href="javascript:;">
-                                <span class="title">
-                                    Menu
-                                </span>
-                                <span class="arrow ">
-                                </span>
-                            </a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a href="ecommerce_index.html">Sub-Menu</a>
-                                </li>
-                                <li>
-                                    <a href="ecommerce_index.html">Sub-Menu</a>
-                                </li>
-                                <li>
-                                    <a href="ecommerce_index.html">Sub-Menu</a>
-                                </li>
-                                <li>
-                                    <a href="ecommerce_index.html">Sub-Menu</a>
-                                </li>
-                                <li>
-                                    <a href="ecommerce_index.html">Sub-Menu</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                <span class="title">Menu</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                <span class="title">Menu</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                <span class="title">Menu</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                <span class="title">Menu</span>
+                        <li class="<?= (isset($menu_active) and $menu_active == 'user') ? 'active' : ''; ?>">
+                            <a href="<?= site_url('cms/cms_user'); ?>">
+                                <i class="fa fa-smile-o"></i>
+                                <span class="title">ผู้ใช้</span>
+                                <span class="selected"></span>
                             </a>
                         </li>
                     </ul>

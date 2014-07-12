@@ -42,3 +42,33 @@ define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 
 // Define Ajax Request
 define('IS_AJAX', isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest');
+
+/*
+  |--------------------------------------------------------------------------
+  | CMS Path
+  |--------------------------------------------------------------------------
+  |
+ */
+define('CMS_PATH', 'cms');
+
+/*
+  |--------------------------------------------------------------------------
+  | CMS Permission
+  |--------------------------------------------------------------------------
+  |
+ */
+$cms_permission = array(
+    CMS_PATH . '/cms_banner' => 'Banner',
+    CMS_PATH . '/cms_dashboard' => 'Dashboard',
+    CMS_PATH . '/cms_director' => 'Director',
+    CMS_PATH . '/cms_document' => 'Document',
+    CMS_PATH . '/cms_event' => 'Event',
+    CMS_PATH . '/cms_gallery' => 'Gallery',
+    CMS_PATH . '/cms_intro' => 'Intro',
+    CMS_PATH . '/cms_post' => 'Post',
+    CMS_PATH . '/cms_post_category' => 'Post Category',
+    CMS_PATH . '/cms_school' => 'School',
+    CMS_PATH . '/cms_staff' => 'Staff',
+);
+
+define('CMS_PERMISSION', serialize($cms_permission));

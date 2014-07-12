@@ -4,28 +4,28 @@
         <div class="portlet box green">
             <div class="portlet-title">
                 <div class="caption">
-                    <i class="fa fa-file-o"></i><?= $page_name; ?>
+                    <i class="fa fa-smile-o"></i>ผู้ใช้
                 </div>
             </div>
             <div class="portlet-body">
                 <div class="table-toolbar">
                     <div class="btn-group">
-                        <a class="btn btn-primary" href="<?= site_url('cms/cms_document/insert'.ucfirst($type_name)); ?>">
+                        <a class="btn btn-primary" href="<?= site_url('cms/cms_user/insert'); ?>">
                             <i class="fa fa-file-o"></i>
                             เพิ่ม
                         </a>
-                        <a class="btn btn-danger" onclick="if(confirm('ลบข้อมูล!?')) { $('form#document_list').submit(); } else { return false; }">
+                        <a class="btn btn-danger" onclick="if(confirm('ลบข้อมูล!?')) { $('form#user_list').submit(); } else { return false; }">
                             <i class="fa fa-trash-o"></i>
                             ลบ
                         </a>
                     </div>
                 </div>
-                <form id="document_list" method="post">
+                <form id="user_list" method="post">
                     <table class="table table-bordered table-striped table-condensed flip-content">
                         <thead class="flip-content">
                             <tr>
                                 <td class="filter"></td>
-                                <td class="filter"><input type="text" name="name" class="form-control input-sm" id="name" placeholder="คำที่ต้องการค้นหา" <?= (isset($filter['name']) and $filter['name']) ? 'value="' . $filter['name'] . '"' : ''; ?> /></td>
+                                <td class="filter"><input type="text" name="username" class="form-control input-sm" id="username" placeholder="คำที่ต้องการค้นหา" <?= (isset($filter['username']) and $filter['username']) ? 'value="' . $filter['username'] . '"' : ''; ?> /></td>
                                 <td class="filter"></td>
                                 <td class="status filter">
                                     <select name="status" class="form-control input-sm" id="status">
@@ -45,10 +45,10 @@
 
                                 </th>
                                 <th>
-                                    ชื่อ
+                                    username
                                 </th>
                                 <th class="numeric">
-                                    ลิ๊งค์ดาวน์โหลด
+                                    email
                                 </th>
                                 <th class="numeric">
                                     สถานะ
@@ -59,19 +59,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php if (isset($document_list) and $document_list) { ?>
+                            <?php if (isset($user_list) and $user_list) { ?>
                                 <?php $i = 1; ?>
-                                <?php foreach ($document_list as $dl) { ?>
+                                <?php foreach ($user_list as $ul) { ?>
                                     <tr class="<?= ($i % 2 == 1) ? 'odd gradeX' : 'even gradeC'; ?>">
-                                        <td><input type="checkbox" name="document[]" value="<?= $dl['document_id']; ?>" /></td>
-                                        <td><?= $dl['name']; ?></td>
-                                        <td><?= (isset($dl['file']) and $dl['file']) ? '<a href="'.site_url('loadFile/'.$dl['raw']).'" target="_blank"><i class="fa fa-link"></i> ดาวน์โหลด</a>' : ''; ?></td>
-                                        <td class="status"><?= ($dl['status']) ? 'ทำงาน' : 'ไม่ทำงาน'; ?></td>
+                                        <td><input type="checkbox" name="user[]" value="<?= $ul['user_id']; ?>" /></td>
+                                        <td><?= $ul['username']; ?></td>
+                                        <td><?= $ul['email']; ?></td>
+                                        <td class="status"><?= ($ul['status']) ? 'ทำงาน' : 'ไม่ทำงาน'; ?></td>
                                         <td class="status">
-                                            <a class="btn default" href="<?= site_url('cms/cms_document/update'.ucfirst($type_name).'/' . $dl['document_id']); ?>">
-                                                <i class="fa fa-edit"></i>
-                                                แก้ไข
-                                            </a>
+                                            <?php if($ul['permission'] != 'admin') { ?>
+                                                <a class="btn default" href="<?= site_url('cms/cms_user/update/' . $ul['user_id']); ?>">
+                                                    <i class="fa fa-edit"></i>
+                                                    แก้ไข
+                                                </a>
+                                            <?php } ?>
                                         </td>
                                     </tr>
                                     <?php $i++; ?>
@@ -90,9 +92,9 @@
 </div>
 <script type="text/javascript">
     function filter() {
-        var current_url = "<?= site_url('cms/cms_document/'.$type_name); ?>?";
-        if($('input#name').val()) {
-            current_url += 'name='+$('input#name').val()+'&';
+        var current_url = "<?= site_url('cms/cms_user/index'); ?>?";
+        if($('input#username').val()) {
+            current_url += 'username='+$('input#username').val()+'&';
         }
         if($("select option:selected").val()) {
             current_url += 'status='+$("select#status option:selected").val()+'&';

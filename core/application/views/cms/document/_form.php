@@ -80,14 +80,14 @@
                         */?>
                         <?php if(isset($type) and $type == 'I') { ?>
                             <div class="form-group">
-                                <label class="col-md-3 control-label" for="banner_category_id">หมวดหมู่ *</label>
+                                <label class="col-md-3 control-label" for="category">หมวดหมู่ *</label>
                                 <div class="col-md-6">
                                     <style> option[disabled] { display:none; } </style>
-                                    <select class="form-control" name="banner_category_id" id="banner_category_id">
-                                        <option disabled <?= (empty($document_data['banner_category_id'])) ? 'selected' : ''; ?>>เลือกหมวดหมู่</option>
-                                        <?php if(isset($banner_category) and $banner_category) { ?>
-                                            <?php foreach ($banner_category as $value_bc) { ?>
-                                        <option value="<?= $value_bc['banner_category_id']; ?>" <?= (isset($document_data['banner_category_id']) and $document_data['banner_category_id'] == $value_bc['banner_category_id']) ? 'selected' : ''; ?>><?= $value_bc['cate_name']; ?></option>
+                                    <select class="form-control" name="category" id="category">
+                                        <option disabled <?= (empty($document_data['category'])) ? 'selected' : ''; ?>>เลือกหมวดหมู่</option>
+                                        <?php if(isset($constants_doccategory) and $constants_doccategory) { ?>
+                                            <?php foreach ($constants_doccategory as $value_cd) { ?>
+                                                <option value="<?= $value_cd['key']; ?>" <?= (isset($document_data['category']) and $document_data['category'] == $value_cd['key']) ? 'selected' : ''; ?>><?= $value_cd['value']; ?></option>
                                             <?php } ?>
                                         <?php } ?>
                                     </select>

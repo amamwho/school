@@ -7,16 +7,22 @@ class Base_cms extends CI_Controller {
 
     protected $ci;
     protected $data;
-    public $childCategory;
 
     public function __construct() {
         parent::__construct();
         $this->layout->setLayout('cms/_cms_layout');
         $this->ci = & get_instance();
-        //$authen = $this->session->userdata('authen');
-        //if(!isset($authen) or !$authen) {
-        //redirect('cms/cms_authen');
-        //}
+        $this->data['authen'] = $this->session->userdata('authen');
+        if(!isset($this->data['authen']) or !$this->data['authen']) {
+            redirect('cms/cms_authen');
+        }
+        if(isset($this->data['authen']['permission']) and $this->data['authen']['permission'] != 'admin') {
+            $permission_authen = unserialize($this->data['authen']['permission']);
+            if(!in_array(CMS_PATH . '/' . $this->router->fetch_class(), $permission_authen)) {
+                redirect('cms/cms_authen/logout');
+            }
+        }
+        //print_r($this->router->fetch_class()); exit;
         //$this->showProfiler();
     }
 

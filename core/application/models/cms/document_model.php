@@ -59,7 +59,7 @@ class Document_model extends CI_Model {
 	}
         
         public function deleteDocument($id) {
-		$this->db->select('thumb, image');
+		$this->db->select('file');
 		$this->db->from($this->maintable);
 		$this->db->where('document_id', $id);
 		$query = $this->db->get();

@@ -14,6 +14,7 @@ class Cms_document extends Base_cms {
         $this->setBreadcrumb(array(array('name' => 'เอกสาร', 'link' => site_url('cms/cms_document'))));
         $this->data['menu_active'] = 'document';
         
+        $this->load->model('cms/constants_model');
         $this->load->model('cms/document_model');
         $this->document_path_file = $this->config->item('root_upload').$this->config->item('document_path_file');
         $this->load->library('custom_upload', array('upload_path' => $this->document_path_file));
@@ -24,11 +25,11 @@ class Cms_document extends Base_cms {
             redirect(site_url('cms/cms_dashboard'));
         
         $this->setDataByType($type);
-        $where = NULL;
+        $where['type'] = $type;
         $like = NULL;
         if (isset($_POST['document']) and $_POST['document']) {
             foreach ($_POST['document'] as $document_id) {
-                $result = $this->document_model->deleteIntro($document_id);
+                $result = $this->document_model->deleteDocument($document_id);
                 if ($result and $result['file'] and $result['file']) {
                     delete_file($this->document_path_file . $result['file']);
                 }
@@ -56,6 +57,7 @@ class Cms_document extends Base_cms {
             redirect(site_url('cms/cms_dashboard'));
         
         $this->setDataByType($type, 'insert');
+        $this->data['constants_doccategory'] = $this->constants_model->getByType('insidedoc');
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             
             $this->setFormValidation();
@@ -108,6 +110,7 @@ class Cms_document extends Base_cms {
             redirect(site_url('cms/cms_document'));
 
         $this->setDataByType($type, 'update');
+        $this->data['constants_doccategory'] = $this->constants_model->getByType('insidedoc');
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $this->setFormValidation();
             if ($this->form_validation->run() == FALSE) {
