@@ -3,10 +3,12 @@
 
 class Base_front extends CI_Controller {
 
-	protected $layout_name = 'shopping';
+	protected $layout_name = 'basic';
+        protected $front = 'front/';
 	
 	public function __construct() {
 		parent::__construct();
+                $this->front .= $this->layout_name;
                 //$this->output->enable_profiler(TRUE);
 	}
 
@@ -14,7 +16,6 @@ class Base_front extends CI_Controller {
 		$layout = 'layout/'.$this->layout_name;
 		$loadedData = array();
 		$loadedData['content_for_layout'] = $this->load->view($view, $data, true);
-		$loadedData['category'] = $this->getCategories(0, false);
 		if ($return) {
 			$output = $this->load->view($layout, $loadedData, true);
 			return $output;
@@ -47,7 +48,7 @@ class Base_front extends CI_Controller {
 	}
 	
         protected function getHeaderTag($data = '') {
-                return $this->load->view('frontend/' . $this->layout_name . '/header/_header_tag', $data, true);
+                return $this->load->view('front/' . $this->layout_name . '/header/_header_tag', $data, true);
         }
 	
 }

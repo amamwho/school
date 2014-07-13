@@ -1,0 +1,67 @@
+/*
+Bootstrap 3.1 overrides from http://bootply.com
+
+This CSS code should follow the 'bootstrap.css'
+in your HTML file.
+
+license: MIT
+author: bootply.com
+*/
+
+body {
+    padding-top: 70px;
+}
+nav#navigation {
+    background-color: #2061c7;
+}
+nav#navigation .navbar-nav>li>a {
+    color: #fff;
+}
+nav#navigation .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
+    color: #fff;
+}
+nav#navigation .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
+    background-color: #1e5ab9;
+}
+.side {
+    margin-top: 25px;
+}
+.panel-default {
+    border-color: #ccc;
+}
+.panel-default>.panel-heading {
+    color: #fff;
+    background-color: #2061c7;
+    border-color: #ccc;
+}
+.panel-heading .glyphicon {
+    font-size: 14px;
+    margin-right: 5px;
+    color: #FCCF2B;
+}
+
+
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
+    border-color: #ccc;
+}
+
+/* Half Page Height Carousel Customization */
+.carousel {
+    height: 50%;
+}
+.item,
+.active,
+.carousel-inner {
+    height: 100%;
+    text-align: center;
+}
+.fill {
+    width: 100%;
+    height: 250px;
+    background-position: center;
+    background-size: cover;
+}
+.img-slide {
+    display: inline-block!important;
+    height: 300px!important;
+}

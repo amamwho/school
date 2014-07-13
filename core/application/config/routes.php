@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "cms/cms_dashboard";
+$route['default_controller'] = "main";
 $route['404_override'] = '';
 
 $route['cms'] = "cms/cms_dashboard";
