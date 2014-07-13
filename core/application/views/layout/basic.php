@@ -14,12 +14,17 @@
         <!--[if lt IE 9]>
                 <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
+        <!-- ########################### Plugin ########################### -->
+        <!-- ########################## Calendar ########################## -->
+        <link href="assets/front/plugin/bootstrap-calendar/css/calendar.css" rel="stylesheet">
+        <!-- ########################## Calendar ########################## -->
+        <!-- ########################### Plugin ########################### -->
         <link href="assets/front/basic/css/styles.css" rel="stylesheet">
     </head>
     <body>
         <nav class="navbar navbar-default navbar-fixed-top" id="navigation" role="navigation">
             <div class="navbar-header">
-                <a class="navbar-brand" rel="home" href="#">Brand</a>
+                <a class="navbar-brand" rel="home" href="#">โรงเรียน xxxx-xxxx</a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
@@ -92,18 +97,25 @@
             <!--left-->
             <div class="col-sm-3 side">
                 <div class="panel panel-default">
+                    <div class="panel-heading"><span class="glyphicon glyphicon-bookmark"></span>Facebook</div>
+                    <div class="panel-body">
+                        <iframe class="col-sm-12" src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2FFacebookDevelopers&amp;width=407&amp;height=258&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=false&amp;appId=704838176241336" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:258px;" allowTransparency="true"></iframe>
+                    </div>
+                </div>
+                <hr>
+                <div class="panel panel-default">
+                    <div class="panel-heading"><span class="glyphicon glyphicon-bookmark"></span>หน่วยงานที่เกี่ยวข้อง</div>
+                    <div class="panel-body sidebar-banner">
+                        <img src="assets/front/basic/images/banner407-93.jpg">
+                        <img src="assets/front/basic/images/banner407-93.jpg">
+                        <img src="assets/front/basic/images/banner407-93.jpg">
+                        <img src="assets/front/basic/images/banner407-93.jpg">
+                        <img src="assets/front/basic/images/banner407-93.jpg">
+                    </div>
+                </div>
+                <hr>
+                <div class="panel panel-default">
                     <div class="panel-heading"><span class="glyphicon glyphicon-bookmark"></span>Title</div>
-                    <div class="panel-body">Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
-                        Aliquam in felis sit amet augue.</div>
-                </div>
-                <hr>
-                <div class="panel panel-default">
-                    <div class="panel-heading">Title</div>
-                    <div class="panel-body">Content here..</div>
-                </div>
-                <hr>
-                <div class="panel panel-default">
-                    <div class="panel-heading">Title</div>
                     <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
                         Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
                         dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
@@ -111,7 +123,7 @@
                 </div>
                 <hr>
                 <div class="panel panel-default">
-                    <div class="panel-heading">Title</div>
+                    <div class="panel-heading"><span class="glyphicon glyphicon-bookmark"></span>Title</div>
                     <div class="panel-body">Content here..</div>
                 </div>
                 <hr>
@@ -125,18 +137,33 @@
             <!--right-->
             <div class="col-sm-3 side">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Title</div>
+                    <div class="panel-heading"><span class="glyphicon glyphicon-bookmark"></span>Calendar</div>
+                    <div class="panel-body">
+                        <div class="pull-right form-inline">
+                            <div class="btn-group">
+                                <span class="btn btn-primary" data-calendar-nav="prev"><span class="glyphicon glyphicon-chevron-left"></span></span>
+                                <span class="btn btn-primary" data-calendar-nav="next"><span class="glyphicon glyphicon-chevron-right"></span></span>
+                            </div>
+                        </div>
+
+                        <h3 class="calendar"></h3>
+                        <div id="calendar"></div>
+                    </div>
+                </div>
+                <hr>
+                <div class="panel panel-default">
+                    <div class="panel-heading"><span class="glyphicon glyphicon-bookmark"></span>Title</div>
                     <div class="panel-body">Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
                         Aliquam in felis sit amet augue.</div>
                 </div>
                 <hr>
                 <div class="panel panel-default">
-                    <div class="panel-heading">Title</div>
+                    <div class="panel-heading"><span class="glyphicon glyphicon-bookmark"></span>Title</div>
                     <div class="panel-body">Content here..</div>
                 </div>
                 <hr>
                 <div class="panel panel-default">
-                    <div class="panel-heading">Title</div>
+                    <div class="panel-heading"><span class="glyphicon glyphicon-bookmark"></span>Title</div>
                     <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
                         Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
                         dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
@@ -144,7 +171,7 @@
                 </div>
                 <hr>
                 <div class="panel panel-default">
-                    <div class="panel-heading">Title</div>
+                    <div class="panel-heading"><span class="glyphicon glyphicon-bookmark"></span>Title</div>
                     <div class="panel-body">Content here..</div>
                 </div>
                 <hr>
@@ -152,8 +179,15 @@
             <hr>
         </div><!--/container-fluid-->
         <!-- script references -->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+        <script src="assets/front/basic/js/jquery2.0.2.min.js"></script>
         <script src="assets/front/basic/js/bootstrap.min.js"></script>
+        <!-- ########################### Plugin ########################### -->
+        <!-- ########################## Calendar ########################## -->
+        <script src="assets/front/plugin/bootstrap-calendar/js/calendar.js"></script>
+        <script src="assets/front/plugin/bootstrap-calendar/components/underscore/underscore-min.js"></script>
+        <!-- ########################## Calendar ########################## -->
+        <!-- ########################### Plugin ########################### -->
+        
         <script src="assets/front/basic/js/scripts.js"></script>
     </body>
 </html>

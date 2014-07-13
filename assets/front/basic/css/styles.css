@@ -14,6 +14,9 @@ body {
 nav#navigation {
     background-color: #2061c7;
 }
+nav#navigation .navbar-brand {
+    color: #fff;
+}
 nav#navigation .navbar-nav>li>a {
     color: #fff;
 }
@@ -39,16 +42,23 @@ nav#navigation .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .
     margin-right: 5px;
     color: #FCCF2B;
 }
-
-
+.glyphicon.left {
+    margin-right: 5px;
+}
+.thumbnail.no-border {
+    border: none;
+}
+.sidebar-banner img {
+    margin-bottom: 15px;
+}
+.sidebar-banner img:last-child {
+    margin: 0px;
+}
 .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
     border-color: #ccc;
 }
 
-/* Half Page Height Carousel Customization */
-.carousel {
-    height: 50%;
-}
+/* Begin Custom Carousel Slide */
 .item,
 .active,
 .carousel-inner {
@@ -65,3 +75,16 @@ nav#navigation .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .
     display: inline-block!important;
     height: 300px!important;
 }
+/* End Custom Carousel Slide */
+
+/* Begin Custom Calendar */
+#calendar {
+    font-size: 12px;
+}
+.cal-year-box [class*="span"], .cal-month-box [class*="cal-cell"] {
+    min-height: 50px;
+}
+.cal-month-day {
+    height: 50px;
+}
+/* End Custom Calendar */
