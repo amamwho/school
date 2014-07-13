@@ -8,6 +8,7 @@ var options = {
     events_source: 'assets/front/plugin/bootstrap-calendar/events.json.php',
     view: 'month',
     tmpl_path: 'assets/front/plugin/bootstrap-calendar/tmpls/',
+    language: 'th-TH',
     tmpl_cache: false,
     day: '2013-03-12',
     onAfterEventsLoad: function(events) {

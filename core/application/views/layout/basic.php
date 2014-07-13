@@ -106,11 +106,11 @@
                 <div class="panel panel-default">
                     <div class="panel-heading"><span class="glyphicon glyphicon-bookmark"></span>หน่วยงานที่เกี่ยวข้อง</div>
                     <div class="panel-body sidebar-banner">
-                        <img src="assets/front/basic/images/banner407-93.jpg">
-                        <img src="assets/front/basic/images/banner407-93.jpg">
-                        <img src="assets/front/basic/images/banner407-93.jpg">
-                        <img src="assets/front/basic/images/banner407-93.jpg">
-                        <img src="assets/front/basic/images/banner407-93.jpg">
+                        <img class="col-sm-12" src="assets/front/basic/images/banner407-93.jpg">
+                        <img class="col-sm-12" src="assets/front/basic/images/banner407-93.jpg">
+                        <img class="col-sm-12" src="assets/front/basic/images/banner407-93.jpg">
+                        <img class="col-sm-12" src="assets/front/basic/images/banner407-93.jpg">
+                        <img class="col-sm-12" src="assets/front/basic/images/banner407-93.jpg">
                     </div>
                 </div>
                 <hr>
@@ -183,8 +183,9 @@
         <script src="assets/front/basic/js/bootstrap.min.js"></script>
         <!-- ########################### Plugin ########################### -->
         <!-- ########################## Calendar ########################## -->
-        <script src="assets/front/plugin/bootstrap-calendar/js/calendar.js"></script>
         <script src="assets/front/plugin/bootstrap-calendar/components/underscore/underscore-min.js"></script>
+        <script src="assets/front/plugin/bootstrap-calendar/js/calendar.js"></script>
+        <script src="assets/front/plugin/bootstrap-calendar/js/language/th-TH.js"></script>
         <!-- ########################## Calendar ########################## -->
         <!-- ########################### Plugin ########################### -->
         
