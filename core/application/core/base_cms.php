@@ -16,9 +16,13 @@ class Base_cms extends CI_Controller {
         if(!isset($this->data['authen']) or !$this->data['authen']) {
             redirect('cms/cms_authen');
         }
+        
         if(isset($this->data['authen']['permission']) and $this->data['authen']['permission'] != 'admin') {
+            $free_page = unserialize(CMS_FREE_PAGE);
             $permission_authen = unserialize($this->data['authen']['permission']);
-            if(!in_array(CMS_PATH . '/' . $this->router->fetch_class(), $permission_authen)) {
+            if(key_exists(CMS_PATH . '/' . $this->router->fetch_class(), $free_page)) {
+                return;
+            } else if(!in_array(CMS_PATH . '/' . $this->router->fetch_class(), $permission_authen)) {
                 redirect('cms/cms_authen/logout');
             }
         }

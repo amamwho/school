@@ -100,40 +100,7 @@ class Cms_user extends Base_cms {
         }
     }
     
-    public function myProfile() {
-        $this->data['user_data'] = $this->user_model->getUserDetail($user_id);
-
-        if (empty($user_id) or !$this->data['user_data'])
-            redirect(site_url('cms/cms_user'));
-
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $this->setFormValidation('update');
-            if ($this->form_validation->run() == FALSE) {
-                $this->view('cms/user/_form', $this->data);
-            } else {
-                $insert = array(
-                    'username' => (isset($_POST['username']) and $_POST['username']) ? $_POST['username'] : '',
-                    'email' => (isset($_POST['email']) and $_POST['email']) ? $_POST['email'] : '',
-                    'permission' => (isset($_POST['permission']) and $_POST['permission']) ? serialize($_POST['permission']) : '',
-                    'status' => (isset($_POST['status']) and $_POST['status']) ? $_POST['status'] : 0,
-                    'date_modified' => date('Y-m-d H:i:s'),
-                );
-                
-                if(isset($_POST['password']) and $_POST['password']) {
-                    $insert['password'] = $_POST['password'];
-                    $insert['encry_password'] = $this->encrypt->encode($_POST['password']);
-                }
-
-                $result = $this->user_model->editUser($user_id, $insert);
-                redirect(site_url('cms/cms_user'));
-            }
-        } else {
-            $this->setBreadcrumb(array(array('name' => 'ผู้ใช้', 'link' => site_url('cms/cms_user')), array('name' => 'แก้ไข')));
-            $this->view('cms/user/_form', $this->data);
-        }
-    }
-    
-    private function setFormValidation($action = '') {
+    protected function setFormValidation($action = '') {
         if(isset($action) and $action == 'update') {
             if($this->data['user_data']['username'] != $_POST['username'])
                 $this->form_validation->set_rules('username', 'username*', 'required|min_length[5]|callback_username_unique');

@@ -59,16 +59,28 @@ define('CMS_PATH', 'cms');
  */
 $cms_permission = array(
     CMS_PATH . '/cms_banner' => 'Banner',
-    CMS_PATH . '/cms_dashboard' => 'Dashboard',
-    CMS_PATH . '/cms_director' => 'Director',
-    CMS_PATH . '/cms_document' => 'Document',
-    CMS_PATH . '/cms_event' => 'Event',
-    CMS_PATH . '/cms_gallery' => 'Gallery',
+    CMS_PATH . '/cms_director' => 'ผู้บริหาร',
+    CMS_PATH . '/cms_document' => 'เอกสาร',
+    CMS_PATH . '/cms_event' => 'กิจกรรม',
     CMS_PATH . '/cms_intro' => 'Intro',
-    CMS_PATH . '/cms_post' => 'Post',
-    CMS_PATH . '/cms_post_category' => 'Post Category',
-    CMS_PATH . '/cms_school' => 'School',
-    CMS_PATH . '/cms_staff' => 'Staff',
+    CMS_PATH . '/cms_post' => 'โพส',
+    CMS_PATH . '/cms_post_category' => 'ประเภทโพส',
+    CMS_PATH . '/cms_school' => 'ข้อมูลโรงเรียน',
+    CMS_PATH . '/cms_staff' => 'บุคลาการ',
 );
 
 define('CMS_PERMISSION', serialize($cms_permission));
+
+/*
+  |--------------------------------------------------------------------------
+  | CMS Free Page
+  |--------------------------------------------------------------------------
+  |
+ */
+$cms_free_page = array(
+    CMS_PATH . '/cms_dashboard' => 'Dashboard',
+    CMS_PATH . '/cms_gallery' => 'แกลเลอรี่',
+    CMS_PATH . '/cms_profile' => 'แกลเลอรี่',
+);
+
+define('CMS_FREE_PAGE', serialize($cms_free_page));

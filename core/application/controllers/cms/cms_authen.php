@@ -27,7 +27,7 @@ class Cms_authen extends CI_Controller {
             foreach ($user as $user_data) {
                 if ($user_data['username'] == $username and $this->encrypt->decode($user_data['encry_password']) == $password) {
                     $this->session->set_userdata('authen', array(
-                        'id' => $user_data['user_id'],
+                        'user_id' => $user_data['user_id'],
                         'username' => $user_data['username'],
                         'email' => $user_data['email'],
                         'permission' => $user_data['permission'],

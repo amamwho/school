@@ -128,7 +128,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="extra_profile.html">
+                                <a href="<?= site_url('cms/cms_profile'); ?>">
                                     <i class="fa fa-user"></i> My Profile
                                 </a>
                             </li>
@@ -174,113 +174,138 @@
                                 <span class="selected"></span>
                             </a>
                         </li>
-                        <li class="<?= (isset($menu_active) and $menu_active == 'school_detail') ? 'active' : ''; ?>">
-                            <a href="<?= site_url('cms/cms_school'); ?>">
-                                <i class="fa fa-building-o"></i>
-                                <span class="title">ข้อมูลโรงเรียน</span>
-                                <span class="selected"></span>
-                            </a>
-                        </li>
-                        <li class="<?= (isset($menu_active) and $menu_active == 'intro') ? 'active' : ''; ?>">
-                            <a href="<?= site_url('cms/cms_intro'); ?>">
-                                <i class="fa fa-bookmark-o"></i>
-                                <span class="title">Intro</span>
-                                <span class="selected"></span>
-                            </a>
-                        </li>
-                        <li class="<?= (isset($menu_active) and $menu_active == 'banner') ? 'active' : ''; ?>">
-                            <a href="<?= site_url('cms/cms_banner'); ?>">
-                                <i class="fa fa-picture-o"></i>
-                                <span class="title">Banner</span>
-                                <span class="selected"></span>
-                            </a>
-                        </li>
-                        <li class="<?= (isset($menu_active) and $menu_active == 'post') ? 'active' : ''; ?>">
-                            <a href="javascript:;">
-                                <i class="fa fa-edit"></i>
-                                <span class="title">โพส</span>
-                                <span class="arrow ">
-                                </span>
-                            </a>
-                            <ul class="sub-menu">
-                                <li class="<?= (isset($sub_menu_active) and $sub_menu_active == 'post_category') ? 'active' : ''; ?>">
-                                    <a href="<?= site_url('cms/cms_post_category'); ?>">
-                                        <i class="fa fa-sitemap"></i>
-                                        <span class="title">ประเภทโพส</span>
-                                        <span class="selected"></span>
-                                    </a>
-                                </li>
-                                <li class="<?= (isset($sub_menu_active) and $sub_menu_active == 'post') ? 'active' : ''; ?>">
-                                    <a href="<?= site_url('cms/cms_post'); ?>">
-                                        <i class="fa fa-file-text-o"></i>
-                                        <span class="title">โพส</span>
-                                        <span class="selected"></span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="<?= (isset($menu_active) and $menu_active == 'human') ? 'active' : ''; ?>">
-                            <a href="javascript:;">
-                                <i class="fa fa-group"></i>
-                                <span class="title">ระบบบุคลาการ</span>
-                                <span class="arrow ">
-                                </span>
-                            </a>
-                            <ul class="sub-menu">
-                                <li class="<?= (isset($sub_menu_active) and $sub_menu_active == 'director') ? 'active' : ''; ?>">
-                                    <a href="<?= site_url('cms/cms_director'); ?>">
-                                        <i class="fa fa-user"></i>
-                                        <span class="title">ผู้บริหาร</span>
-                                        <span class="selected"></span>
-                                    </a>
-                                </li>
-                                <li class="<?= (isset($sub_menu_active) and $sub_menu_active == 'staff') ? 'active' : ''; ?>">
-                                    <a href="<?= site_url('cms/cms_staff'); ?>">
-                                        <i class="fa fa-user"></i>
-                                        <span class="title">บุคลาการ</span>
-                                        <span class="selected"></span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="<?= (isset($menu_active) and $menu_active == 'document') ? 'active' : ''; ?>">
-                            <a href="javascript:;">
-                                <i class="fa fa-folder-open-o"></i>
-                                <span class="title">เอกสาร</span>
-                                <span class="arrow ">
-                                </span>
-                            </a>
-                            <ul class="sub-menu">
-                                <li class="<?= (isset($sub_menu_active) and $sub_menu_active == 'download') ? 'active' : ''; ?>">
-                                    <a href="<?= site_url('cms/cms_document/download'); ?>">
-                                        <i class="fa fa-file-o"></i>
-                                        <span class="title">เอกสารดาวน์โหลด</span>
-                                        <span class="selected"></span>
-                                    </a>
-                                </li>
-                                <li class="<?= (isset($sub_menu_active) and $sub_menu_active == 'inside') ? 'active' : ''; ?>">
-                                    <a href="<?= site_url('cms/cms_document/inside'); ?>">
-                                        <i class="fa fa-file-o"></i>
-                                        <span class="title">เอกสารภายใน</span>
-                                        <span class="selected"></span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="<?= (isset($menu_active) and $menu_active == 'event') ? 'active' : ''; ?>">
-                            <a href="<?= site_url('cms/cms_event'); ?>">
-                                <i class="fa fa-calendar"></i>
-                                <span class="title">กิจกรรม</span>
-                                <span class="selected"></span>
-                            </a>
-                        </li>
-                        <li class="<?= (isset($menu_active) and $menu_active == 'user') ? 'active' : ''; ?>">
-                            <a href="<?= site_url('cms/cms_user'); ?>">
-                                <i class="fa fa-smile-o"></i>
-                                <span class="title">ผู้ใช้</span>
-                                <span class="selected"></span>
-                            </a>
-                        </li>
+                        <?php $permission_authen = (isset($authen['permission']) and $authen['permission'] != 'admin') ? unserialize($authen['permission']) : array($authen['permission']); ?>
+                        <?php if(in_array(CMS_PATH . '/cms_school', $permission_authen) or in_array('admin', $permission_authen)) { ?>
+                            <li class="<?= (isset($menu_active) and $menu_active == 'school_detail') ? 'active' : ''; ?>">
+                                <a href="<?= site_url('cms/cms_school'); ?>">
+                                    <i class="fa fa-building-o"></i>
+                                    <span class="title">ข้อมูลโรงเรียน</span>
+                                    <span class="selected"></span>
+                                </a>
+                            </li>
+                        <?php } ?>
+                        <?php if(in_array(CMS_PATH . '/cms_intro', $permission_authen) or in_array('admin', $permission_authen)) { ?>
+                            <li class="<?= (isset($menu_active) and $menu_active == 'intro') ? 'active' : ''; ?>">
+                                <a href="<?= site_url('cms/cms_intro'); ?>">
+                                    <i class="fa fa-bookmark-o"></i>
+                                    <span class="title">Intro</span>
+                                    <span class="selected"></span>
+                                </a>
+                            </li>
+                        <?php } ?>
+                        <?php if(in_array(CMS_PATH . '/cms_banner', $permission_authen) or in_array('admin', $permission_authen)) { ?>
+                            <li class="<?= (isset($menu_active) and $menu_active == 'banner') ? 'active' : ''; ?>">
+                                <a href="<?= site_url('cms/cms_banner'); ?>">
+                                    <i class="fa fa-picture-o"></i>
+                                    <span class="title">Banner</span>
+                                    <span class="selected"></span>
+                                </a>
+                            </li>
+                        <?php } ?>
+                        <?php if(in_array(CMS_PATH . '/cms_post_category', $permission_authen) or in_array(CMS_PATH . '/cms_post', $permission_authen) or in_array('admin', $permission_authen)) { ?>
+                            <li class="<?= (isset($menu_active) and $menu_active == 'post') ? 'active' : ''; ?>">
+                                <a href="javascript:;">
+                                    <i class="fa fa-edit"></i>
+                                    <span class="title">โพส</span>
+                                    <span class="arrow ">
+                                    </span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <?php if(in_array(CMS_PATH . '/cms_post_category', $permission_authen) or in_array('admin', $permission_authen)) { ?>
+                                        <li class="<?= (isset($sub_menu_active) and $sub_menu_active == 'post_category') ? 'active' : ''; ?>">
+                                            <a href="<?= site_url('cms/cms_post_category'); ?>">
+                                                <i class="fa fa-sitemap"></i>
+                                                <span class="title">ประเภทโพส</span>
+                                                <span class="selected"></span>
+                                            </a>
+                                        </li>
+                                    <?php } ?>
+                                    <?php if(in_array(CMS_PATH . '/cms_post', $permission_authen) or in_array('admin', $permission_authen)) { ?>
+                                        <li class="<?= (isset($sub_menu_active) and $sub_menu_active == 'post') ? 'active' : ''; ?>">
+                                            <a href="<?= site_url('cms/cms_post'); ?>">
+                                                <i class="fa fa-file-text-o"></i>
+                                                <span class="title">โพส</span>
+                                                <span class="selected"></span>
+                                            </a>
+                                        </li>
+                                    <?php } ?>
+                                </ul>
+                            </li>
+                        <?php } ?>
+                        <?php if(in_array(CMS_PATH . '/cms_director', $permission_authen) or in_array(CMS_PATH . '/cms_staff', $permission_authen) or in_array('admin', $permission_authen)) { ?>
+                            <li class="<?= (isset($menu_active) and $menu_active == 'human') ? 'active' : ''; ?>">
+                                <a href="javascript:;">
+                                    <i class="fa fa-group"></i>
+                                    <span class="title">ระบบบุคลาการ</span>
+                                    <span class="arrow ">
+                                    </span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <?php if(in_array(CMS_PATH . '/cms_director', $permission_authen) or in_array('admin', $permission_authen)) { ?>
+                                        <li class="<?= (isset($sub_menu_active) and $sub_menu_active == 'director') ? 'active' : ''; ?>">
+                                            <a href="<?= site_url('cms/cms_director'); ?>">
+                                                <i class="fa fa-user"></i>
+                                                <span class="title">ผู้บริหาร</span>
+                                                <span class="selected"></span>
+                                            </a>
+                                        </li>
+                                    <?php } ?>
+                                    <?php if(in_array(CMS_PATH . '/cms_staff', $permission_authen) or in_array('admin', $permission_authen)) { ?>
+                                        <li class="<?= (isset($sub_menu_active) and $sub_menu_active == 'staff') ? 'active' : ''; ?>">
+                                            <a href="<?= site_url('cms/cms_staff'); ?>">
+                                                <i class="fa fa-user"></i>
+                                                <span class="title">บุคลาการ</span>
+                                                <span class="selected"></span>
+                                            </a>
+                                        </li>
+                                    <?php } ?>
+                                </ul>
+                            </li>
+                        <?php } ?>
+                        <?php if(in_array(CMS_PATH . '/cms_document', $permission_authen) or in_array('admin', $permission_authen)) { ?>
+                            <li class="<?= (isset($menu_active) and $menu_active == 'document') ? 'active' : ''; ?>">
+                                <a href="javascript:;">
+                                    <i class="fa fa-folder-open-o"></i>
+                                    <span class="title">เอกสาร</span>
+                                    <span class="arrow ">
+                                    </span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li class="<?= (isset($sub_menu_active) and $sub_menu_active == 'download') ? 'active' : ''; ?>">
+                                        <a href="<?= site_url('cms/cms_document/download'); ?>">
+                                            <i class="fa fa-file-o"></i>
+                                            <span class="title">เอกสารดาวน์โหลด</span>
+                                            <span class="selected"></span>
+                                        </a>
+                                    </li>
+                                    <li class="<?= (isset($sub_menu_active) and $sub_menu_active == 'inside') ? 'active' : ''; ?>">
+                                        <a href="<?= site_url('cms/cms_document/inside'); ?>">
+                                            <i class="fa fa-file-o"></i>
+                                            <span class="title">เอกสารภายใน</span>
+                                            <span class="selected"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        <?php } ?>
+                        <?php if(in_array(CMS_PATH . '/cms_event', $permission_authen) or in_array('admin', $permission_authen)) { ?>
+                            <li class="<?= (isset($menu_active) and $menu_active == 'event') ? 'active' : ''; ?>">
+                                <a href="<?= site_url('cms/cms_event'); ?>">
+                                    <i class="fa fa-calendar"></i>
+                                    <span class="title">กิจกรรม</span>
+                                    <span class="selected"></span>
+                                </a>
+                            </li>
+                        <?php } ?>
+                        <?php if(in_array(CMS_PATH . '/cms_user', $permission_authen) or in_array('admin', $permission_authen)) { ?>
+                            <li class="<?= (isset($menu_active) and $menu_active == 'user') ? 'active' : ''; ?>">
+                                <a href="<?= site_url('cms/cms_user'); ?>">
+                                    <i class="fa fa-smile-o"></i>
+                                    <span class="title">ผู้ใช้</span>
+                                    <span class="selected"></span>
+                                </a>
+                            </li>
+                        <?php } ?>
                     </ul>
                     <!-- END SIDEBAR MENU -->
                 </div>
