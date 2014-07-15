@@ -52,7 +52,7 @@
             </div>
         </nav>
             
-        <div id="myCarousel" class="carousel slide">
+        <div id="myCarousel" class="container carousel slide">
             <!-- Indicators -->
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -92,7 +92,7 @@
             </a>
         </div>
         
-        <div class="container-fluid">
+        <div class="container">
 
             <!--left-->
             <div class="col-sm-3 side">

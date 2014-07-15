@@ -12,6 +12,12 @@ class Main extends Base_front {
                 //$this->debug($data);
 		$this->view($this->front.'/main/_index', $data);
 	}
+        
+        public function post() {
+                $data['header'] = $this->getHeaderTag();
+                //$this->debug($data);
+		$this->view($this->front.'/main/_post', $data);
+	}
 
 }
 
