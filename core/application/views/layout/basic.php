@@ -18,13 +18,16 @@
         <!-- ########################## Calendar ########################## -->
         <link href="assets/front/plugin/bootstrap-calendar/css/calendar.css" rel="stylesheet">
         <!-- ########################## Calendar ########################## -->
+        <!-- ########################## ColorBox ########################## -->
+        <link href="assets/front/plugin/colorbox/theme/2/colorbox.css" rel="stylesheet">
+        <!-- ########################## ColorBox ########################## -->
         <!-- ########################### Plugin ########################### -->
         <link href="assets/front/basic/css/styles.css" rel="stylesheet">
     </head>
     <body>
         <nav class="navbar navbar-default navbar-fixed-top" id="navigation" role="navigation">
             <div class="navbar-header">
-                <a class="navbar-brand" rel="home" href="#">โรงเรียน xxxx-xxxx</a>
+                <a class="navbar-brand" rel="home" href="<?= base_url(); ?>">โรงเรียน xxxx-xxxx</a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
@@ -34,8 +37,8 @@
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="#">Link</a></li>
-                    <li><a href="#">Link</a></li>
+                    <li><a href="<?= site_url('director'); ?>">ผู้บริหาร</a></li>
+                    <li><a href="<?= site_url('staff'); ?>">อาจารย์/บุคลากร</a></li>
                     <li><a href="#">Link</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
@@ -103,16 +106,16 @@
                     </div>
                 </div>
                 <hr>
-                <div class="panel panel-default">
-                    <div class="panel-heading"><span class="glyphicon glyphicon-bookmark"></span>หน่วยงานที่เกี่ยวข้อง</div>
-                    <div class="panel-body sidebar-banner">
-                        <img class="col-sm-12" src="assets/front/basic/images/banner407-93.jpg">
-                        <img class="col-sm-12" src="assets/front/basic/images/banner407-93.jpg">
-                        <img class="col-sm-12" src="assets/front/basic/images/banner407-93.jpg">
-                        <img class="col-sm-12" src="assets/front/basic/images/banner407-93.jpg">
-                        <img class="col-sm-12" src="assets/front/basic/images/banner407-93.jpg">
+                <?php if(isset($left_banner) and $left_banner) { ?>
+                    <div class="panel panel-default">
+                        <div class="panel-heading"><span class="glyphicon glyphicon-bookmark"></span>หน่วยงานที่เกี่ยวข้อง</div>
+                        <div class="panel-body sidebar-banner">
+                            <?php foreach($left_banner as $v_left_banner) { ?>
+                                <a href="<?= $v_left_banner['link']; ?>" target="_blank"><img class="col-sm-12" src="<?= $this->images_path_banner.$v_left_banner['image']; ?>"></a>
+                            <?php } ?>
+                        </div>
                     </div>
-                </div>
+                <?php } ?>
                 <hr>
                 <div class="panel panel-default">
                     <div class="panel-heading"><span class="glyphicon glyphicon-bookmark"></span>Title</div>
@@ -137,6 +140,16 @@
             <!--right-->
             <div class="col-sm-3 side">
                 <div class="panel panel-default">
+                    <div class="panel-heading"><span class="glyphicon glyphicon-bookmark"></span>ผุ้อำนวยการโรงเรียน</div>
+                    <div class="panel-body director">
+                        <a href="<?= site_url('director/profile/'.$latest_director['director_id']); ?>">
+                            <img class="col-sm-12" src="<?= $this->images_path_director.$latest_director['image']; ?>">
+                            <h4><?= $latest_director['firstname'].' '.$latest_director['lastname']; ?></h4>
+                        </a>
+                    </div>
+                </div>
+                <hr>
+                <div class="panel panel-default">
                     <div class="panel-heading"><span class="glyphicon glyphicon-bookmark"></span>Calendar</div>
                     <div class="panel-body">
                         <div class="pull-right form-inline">
@@ -149,12 +162,6 @@
                         <h3 class="calendar"></h3>
                         <div id="calendar"></div>
                     </div>
-                </div>
-                <hr>
-                <div class="panel panel-default">
-                    <div class="panel-heading"><span class="glyphicon glyphicon-bookmark"></span>Title</div>
-                    <div class="panel-body">Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
-                        Aliquam in felis sit amet augue.</div>
                 </div>
                 <hr>
                 <div class="panel panel-default">
@@ -187,6 +194,9 @@
         <script src="assets/front/plugin/bootstrap-calendar/js/calendar.js"></script>
         <script src="assets/front/plugin/bootstrap-calendar/js/language/th-TH.js"></script>
         <!-- ########################## Calendar ########################## -->
+        <!-- ########################## ColorBox ########################## -->
+        <script src="assets/front/plugin/colorbox/jquery.colorbox.js"></script>
+        <!-- ########################## ColorBox ########################## -->
         <!-- ########################### Plugin ########################### -->
         
         <script src="assets/front/basic/js/scripts.js"></script>

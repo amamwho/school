@@ -1,4 +1,10 @@
 <!-- BEGIN PAGE LEVEL PLUGINS -->
+<!-- BEGIN EDITOR -->
+<link rel="stylesheet" type="text/css" href="assets/cms/metronic/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css"/>
+<script type="text/javascript" src="assets/cms/metronic/plugins/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="assets/cms/metronic/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js"></script>
+<script type="text/javascript" src="assets/cms/metronic/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>
+<!-- END EDITOR -->
 <!-- BEGIN FILEINPUT -->
 <link rel="stylesheet" type="text/css" href="assets/cms/metronic/plugins/bootstrap-fileinput/bootstrap-fileinput.css"/>
 <script src="assets/cms/metronic/plugins/bootstrap-fileinput/bootstrap-fileinput.js" type="text/javascript"></script>
@@ -168,6 +174,12 @@
                             <label class="col-md-3 control-label" for="email">อีเมล</label>
                             <div class="col-md-6">
                                 <input type="text" class="form-control" name="email" id="email" <?= (isset($staff_data['email']) and $staff_data['email']) ? 'value="' . $staff_data['email'] . '"' : ''; ?>>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="description">ข้อมูล</label>
+                            <div class="col-md-6">
+                                <textarea class="ckeditor form-control" name="description" rows="6" id="description"><?= (isset($staff_data['description']) and $staff_data['description']) ? $staff_data['description'] : ''; ?></textarea>
                             </div>
                         </div>
                         <div class="form-group">

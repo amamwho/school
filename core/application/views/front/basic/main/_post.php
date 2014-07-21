@@ -13,7 +13,7 @@
         <h4>Project One</h4>
         <h5>Subheading</h5>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
-        <a href="#" role="button">อ่านต่อ.. »</a>
+        <a href="<?= site_url('main/detail'); ?>" role="button">อ่านต่อ.. »</a>
     </div>
 </div>
 <hr>
@@ -27,7 +27,7 @@
         <h4>Project One</h4>
         <h5>Subheading</h5>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
-        <a href="#" role="button">อ่านต่อ.. »</a>
+        <a href="<?= site_url('main/detail'); ?>" role="button">อ่านต่อ.. »</a>
     </div>
 </div>
 <hr>
@@ -41,7 +41,7 @@
         <h4>Project One</h4>
         <h5>Subheading</h5>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
-        <a href="#" role="button">อ่านต่อ.. »</a>
+        <a href="<?= site_url('main/detail'); ?>" role="button">อ่านต่อ.. »</a>
     </div>
 </div>
 <hr>
@@ -55,7 +55,7 @@
         <h4>Project One</h4>
         <h5>Subheading</h5>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
-        <a href="#" role="button">อ่านต่อ.. »</a>
+        <a href="<?= site_url('main/detail'); ?>" role="button">อ่านต่อ.. »</a>
     </div>
 </div>
 <hr>
@@ -69,7 +69,7 @@
         <h4>Project One</h4>
         <h5>Subheading</h5>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
-        <a href="#" role="button">อ่านต่อ.. »</a>
+        <a href="<?= site_url('main/detail'); ?>" role="button">อ่านต่อ.. »</a>
     </div>
 </div>
 <hr>
@@ -83,7 +83,7 @@
         <h4>Project One</h4>
         <h5>Subheading</h5>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
-        <a href="#" role="button">อ่านต่อ.. »</a>
+        <a href="<?= site_url('main/detail'); ?>" role="button">อ่านต่อ.. »</a>
     </div>
 </div>
 <hr>

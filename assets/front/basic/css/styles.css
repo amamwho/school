@@ -48,15 +48,53 @@ nav#navigation .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .
 .thumbnail.no-border {
     border: none;
 }
-.sidebar-banner img {
+.sidebar-banner img, .sidebar-banner a {
     width: 100%;
     margin-bottom: 10px;
+    display: inline-block;
 }
-.sidebar-banner img:last-child {
+.sidebar-banner img:last-child, .sidebar-banner a:last-child {
     margin: 0px;
 }
 .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
     border-color: #ccc;
+}
+.director img {
+    margin-bottom: 20px;
+}
+.director h4 {
+    text-align: center;
+}
+.list-staff-cate {
+    padding-left: 15px;
+    list-style: none;
+}
+.list-staff-cate li {
+    padding-bottom: 5px;
+    margin-bottom: 7px;
+    border-bottom: 1px solid #eee;
+}
+.list-staff-cate li span {
+    margin-right: 10px;
+}
+.page-header {
+    padding: 9px 0;
+    margin: 27px 0 20px;
+    border-bottom: 1px solid #eee;
+    border-top: 1px solid #eee;
+}
+div.profile-img {
+    text-align: center;
+}
+div.profile-img img {
+    max-height: 300px;
+    display: inline-block;
+}
+div.profile-detail {
+    margin-bottom: 10px;
+}
+.thumbnail h3 {
+    word-wrap: break-word;
 }
 
 /* Begin Custom Pagination */

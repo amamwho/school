@@ -6,7 +6,7 @@ include(APPPATH . "/core/base_cms.php");
 
 class Cms_director extends Base_cms {
     
-    public $images_path_post;
+    public $images_path_director;
     public $vdo_path;
     
     public function __construct() {

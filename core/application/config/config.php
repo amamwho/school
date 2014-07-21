@@ -362,7 +362,7 @@ $config['proxy_ips'] = '';
 /* Location: ./application/config/config.php */
 
 /*======================================================================= Pagination Limit ==========================================*/
-$config['pagination_limit_front'] = 6;
+$config['pagination_limit_front'] = 10;
 $config['pagination_limit'] = 50;
 $config['pagination_num_links_front'] = 5;
 $config['pagination_num_links'] = 5;

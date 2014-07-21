@@ -303,6 +303,7 @@ class MY_Pagination extends CI_Pagination {
 
 		// And here we go...
 		$output = '';
+                $output .= $this->parrent_tag_open;
 
 		// Render the "First" link
 		/*if ($this->first_link !== FALSE AND $this->cur_page > ($this->num_links + 1)) {
@@ -372,10 +373,12 @@ class MY_Pagination extends CI_Pagination {
 
 		// Add the wrapper HTML if exists
 		$output = $this->full_tag_open.$output.$this->full_tag_close;
+                
+                $output .= $this->parrent_tag_close;
 
-		if ($this->cur_page != '') {
+		/*if ($this->cur_page != '') {
 			$output .= '<br><br><span class="page_text">หน้า '.$this->cur_page.' จากทั้งหมด '.$this->total_page.' หน้า | พบทั้งหมด '.$this->total_rows.' รายการ</span>'."\n";
-		}
+		}*/
 
 		return $output;
 	}

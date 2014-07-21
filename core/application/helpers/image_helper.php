@@ -1,41 +1,5 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-if (!function_exists('getProductImage')) {
-	function getProductImage($file) {
-		$ci =& get_instance();
-		$path = $ci->config->item('root_images').$ci->config->item('images_path_product');
-		$full_path = $path.$file;
-		if (isset($file) and file_exists($full_path) and is_file($full_path))
-			return $full_path;
-		else
-			return 'asset/front/shopping/images/mainimg.png';
-	}
-}
-
-if (!function_exists('getCategoryImage')) {
-	function getCategoryImage($file) {
-		$ci =& get_instance();
-		$path = $ci->config->item('root_images').$ci->config->item('images_path_category');
-		$full_path = $path.$file;
-		if (isset($file) and file_exists($full_path) and is_file($full_path))
-			return $full_path;
-		else
-			return 'asset/front/shopping/images/mainimg.png';
-	}
-}
-
-if (!function_exists('getGalleryImage')) {
-	function getGalleryImage($file) {
-		$ci =& get_instance();
-		$path = $ci->config->item('root_images').$ci->config->item('images_path_product_gallery');
-		$full_path = $path.$file;
-		if (isset($file) and file_exists($full_path) and is_file($full_path))
-			return $full_path;
-		else
-			return 'asset/front/shopping/images/mainimg.png';
-	}
-}
-
 if (!function_exists('getBannerImage')) {
 	function getBannerImage($file) {
 		$ci =& get_instance();
@@ -66,5 +30,29 @@ if (!function_exists('delete_file')) {
 				return false;
 		} else
 			return false;
+	}
+}
+
+if (!function_exists('getPostThumb')) {
+	function getPostThumb($file) {
+		$ci =& get_instance();
+		$path = $ci->config->item('root_upload').$ci->config->item('images_path_post');
+		$full_path = $path.$file;
+		if (isset($file) and file_exists($full_path) and is_file($full_path))
+			return $full_path;
+		else
+			return 'assets/front/basic/images/postthumb.png';
+	}
+}
+
+if (!function_exists('getPostImage')) {
+	function getPostImage($file) {
+		$ci =& get_instance();
+		$path = $ci->config->item('root_upload').$ci->config->item('images_path_post');
+		$full_path = $path.$file;
+		if (isset($file) and file_exists($full_path) and is_file($full_path))
+			return $full_path;
+		else
+			return 'assets/front/basic/images/postimage.png';
 	}
 }
