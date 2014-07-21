@@ -59,6 +59,7 @@ class Staff_model extends CI_Model {
     public function getCountStaffByCategory($id) {
         $this->db->select('staff_id');
         $this->db->from($this->maintable);
+        $this->db->where('staff_category_id', $id);
         $this->db->where('status', 1);
         $query = $this->db->get();
         return $query->num_rows();

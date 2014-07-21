@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-lg-4 col-md-4">
                 <a href="<?= site_url('director/profile/'.$v_director['director_id']); ?>">
-                    <img class="img-responsive" src="<?= $this->images_path_director.$v_director['thumb']; ?>" alt="<?= $v_director['firstname'].' '.$v_director['lastname']; ?>">
+                    <img class="img-responsive" src="<?= getDirectorThumb($v_director['thumb']); ?>" alt="<?= $v_director['firstname'].' '.$v_director['lastname']; ?>">
                 </a>
             </div>
             <div class="col-lg-8 col-md-8">
@@ -20,6 +20,8 @@
         </div>
         <hr>
     <?php } ?>
+<?php } else { ?>
+    <p>ไม่พบข้อมูล</p>
 <?php } ?>
 <div class="row">
     <div class="col-lg-12 row-pagination">

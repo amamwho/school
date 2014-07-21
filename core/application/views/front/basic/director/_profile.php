@@ -7,7 +7,7 @@
 </h3>
 <?php if(isset($director['image']) and $director['image']) { ?>
     <div class="profile-img">
-        <img src="<?= $this->images_path_director.$director['image']; ?>" class="img-responsive">
+        <img src="<?= getDirectorImage($director['image']); ?>" class="img-responsive">
     </div>
     <hr>
 <?php } ?>

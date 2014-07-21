@@ -28,6 +28,10 @@ class Main extends Base_front {
                 $data = array();
 		$this->view($this->front.'/main/_detail', $data);
 	}
+        
+        public function test() {
+                echo $this->encrypt->encode('password');
+	}
 
 }
 

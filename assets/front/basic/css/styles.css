@@ -26,6 +26,13 @@ nav#navigation .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
 nav#navigation .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
     background-color: #1e5ab9;
 }
+.navbar-brand {
+    padding: 12px;
+}
+.navbar-brand .glyphicon {
+    color: #FCCF2B;
+    margin-right: 5px;
+}
 .side {
     margin-top: 25px;
 }
@@ -43,7 +50,8 @@ nav#navigation .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .
     color: #FCCF2B;
 }
 .glyphicon.left {
-    margin-right: 5px;
+    margin-right: 10px;
+    margin-left: 5px;
 }
 .thumbnail.no-border {
     border: none;
@@ -82,6 +90,11 @@ nav#navigation .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .
     margin: 27px 0 20px;
     border-bottom: 1px solid #eee;
     border-top: 1px solid #eee;
+}
+.category-header {
+    padding: 9px 0;
+    margin: 20px 0 20px;
+    border-bottom: 1px solid #eee;
 }
 div.profile-img {
     text-align: center;

@@ -27,7 +27,7 @@
     <body>
         <nav class="navbar navbar-default navbar-fixed-top" id="navigation" role="navigation">
             <div class="navbar-header">
-                <a class="navbar-brand" rel="home" href="<?= base_url(); ?>">โรงเรียน xxxx-xxxx</a>
+                <a class="navbar-brand" rel="home" href="<?= base_url(); ?>"><span class="glyphicon glyphicon-home"></span> โรงเรียน - ของเรา</a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
@@ -111,7 +111,11 @@
                         <div class="panel-heading"><span class="glyphicon glyphicon-bookmark"></span>หน่วยงานที่เกี่ยวข้อง</div>
                         <div class="panel-body sidebar-banner">
                             <?php foreach($left_banner as $v_left_banner) { ?>
-                                <a href="<?= $v_left_banner['link']; ?>" target="_blank"><img class="col-sm-12" src="<?= $this->images_path_banner.$v_left_banner['image']; ?>"></a>
+                                <?php if(isset($v_left_banner['link']) and $v_left_banner['link']) { ?>
+                                    <a href="<?= addhttp($v_left_banner['link']); ?>" target="_blank"><img class="col-sm-12" src="<?= getSideBannerImage($v_left_banner['image']); ?>"></a>
+                                <?php } else { ?>
+                                    <img class="col-sm-12" src="<?= $this->images_path_banner.$v_left_banner['image']; ?>">
+                                <?php } ?>
                             <?php } ?>
                         </div>
                     </div>
@@ -150,7 +154,7 @@
                 </div>
                 <hr>
                 <div class="panel panel-default">
-                    <div class="panel-heading"><span class="glyphicon glyphicon-bookmark"></span>Calendar</div>
+                    <div class="panel-heading"><span class="glyphicon glyphicon-bookmark"></span>ปฏิทินกิจกรรม</div>
                     <div class="panel-body">
                         <div class="pull-right form-inline">
                             <div class="btn-group">

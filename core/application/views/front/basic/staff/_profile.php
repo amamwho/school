@@ -7,7 +7,7 @@
 </h3>
 <?php if(isset($staff['image']) and $staff['image']) { ?>
     <div class="profile-img">
-        <img src="<?= $this->images_path_staff.$staff['image']; ?>" class="img-responsive">
+        <img src="<?= getStaffThumb($staff['image']); ?>" class="img-responsive">
     </div>
     <hr>
 <?php } ?>

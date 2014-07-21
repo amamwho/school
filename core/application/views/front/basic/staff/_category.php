@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-lg-4 col-md-4">
                 <a href="<?= site_url('staff/profile/'.$v_staff['staff_id']); ?>">
-                    <img class="img-responsive" src="<?= $this->images_path_staff.$v_staff['thumb']; ?>" alt="<?= $v_staff['firstname'].' '.$v_staff['lastname']; ?>">
+                    <img class="img-responsive" src="<?= getStaffThumb($v_staff['thumb']); ?>" alt="<?= $v_staff['firstname'].' '.$v_staff['lastname']; ?>">
                 </a>
             </div>
             <div class="col-lg-8 col-md-8">
@@ -20,6 +20,8 @@
         </div>
         <hr>
     <?php } ?>
+<?php } else { ?>
+    <p>ไม่พบข้อมูล</p>
 <?php } ?>
 <div class="row">
     <div class="col-lg-12 row-pagination">
