@@ -25,6 +25,7 @@ class Base_front extends CI_Controller {
 		$layout = 'layout/'.$this->layout_name;
 		$loadedData = array();
                 $loadedData['header'] = $this->load->view('front/' . $this->layout_name . '/header/_header_tag', $data, true);
+                $loadedData['main_banner'] = $this->banner_model->getBannerByCategory(1);
                 $loadedData['left_banner'] = $this->banner_model->getBannerByCategory(2);
                 $loadedData['latest_director'] = $this->director_model->getLatestDirector();
 		$loadedData['content_for_layout'] = $this->load->view($view, $data, true);

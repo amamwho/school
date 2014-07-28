@@ -10,6 +10,12 @@ author: bootply.com
 
 body {
     padding-top: 70px;
+    background-image: url("../images/striped_lens.png");
+}
+.container.basic {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    margin-bottom: 30px;
 }
 nav#navigation {
     background-color: #2061c7;
@@ -109,7 +115,12 @@ div.profile-detail {
 .thumbnail h3 {
     word-wrap: break-word;
 }
-
+.embed-vdo {
+    margin-bottom: 30px;
+}
+.embed-vdo iframe {
+    max-width: 100%;
+}
 /* Begin Custom Pagination */
 .row-pagination {
     text-align: right;

@@ -16,7 +16,7 @@ class Cms_banner extends Base_cms {
         
         $this->load->model('cms/banner_model');
         $this->images_path_banner = $this->config->item('root_upload').$this->config->item('images_path_banner');
-        $this->load->library('custom_upload', array('upload_path' => $this->images_path_banner));
+        $this->load->library('custom_upload', array('upload_path' => $this->images_path_banner, 'max_width' => '3000', 'max_height' => '1500'));
     }
 
     public function index($offset = 0) {

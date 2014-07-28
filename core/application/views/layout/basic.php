@@ -64,27 +64,22 @@
             </ol>
             
             <!-- Wrapper for slides -->
-            <div class="carousel-inner">
-                <div class="item active">
-                    <img class="img-slide" src="assets/front/basic/images/slide1.jpg">
-                    <div class="carousel-caption">
-                        <h1>Modern Business - A Bootstrap 3 Template</h1>
-                    </div>
+            <?php if(isset($main_banner) and $main_banner) { ?>
+                <div class="carousel-inner">
+                    <?php foreach($main_banner as $key_main_banner => $v_main_banner) { ?>
+                        <div class="item <?= ($key_main_banner === 0) ? 'active' : ''; ?>">
+                            <?php if(isset($v_main_banner['image']) and $v_main_banner['image']) { ?>
+                                <img class="img-slide" src="<?= getSideBannerImage($v_main_banner['image']); ?>">
+                            <?php } ?>
+                            <?php if(isset($v_main_banner['short_description']) and $v_main_banner['short_description']) { ?>
+                                <div class="carousel-caption">
+                                    <h1><?= $v_main_banner['short_description']; ?></h1>
+                                </div>
+                            <?php } ?>
+                        </div>
+                    <?php } ?>
                 </div>
-                <div class="item">
-                    <img class="img-slide" src="assets/front/basic/images/slide2.jpg">
-                    <div class="carousel-caption">
-                        <h1>Ready to Style &amp; Add Content</h1>
-                    </div>
-                </div>
-                <div class="item">
-                    <img class="img-slide" src="assets/front/basic/images/slide3.jpg">
-                    <div class="carousel-caption">
-                        <h1>Additional Layout Options at <a href="http://startbootstrap.com">http://startbootstrap.com</a>
-                        </h1>
-                    </div>
-                </div>
-            </div>
+            <?php } ?>
             
             <!-- Controls -->
             <a class="left carousel-control" href="#myCarousel" data-slide="prev">
@@ -95,7 +90,7 @@
             </a>
         </div>
         
-        <div class="container">
+        <div class="container basic">
 
             <!--left-->
             <div class="col-sm-3 side">
