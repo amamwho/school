@@ -66,6 +66,7 @@ $cms_permission = array(
     CMS_PATH . '/cms_post' => 'โพส',
     CMS_PATH . '/cms_post_category' => 'ประเภทโพส',
     CMS_PATH . '/cms_school' => 'ข้อมูลโรงเรียน',
+    CMS_PATH . '/cms_sidebar' => 'Sidebar',
     CMS_PATH . '/cms_staff' => 'บุคลาการ',
 );
 

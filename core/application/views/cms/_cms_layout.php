@@ -288,6 +288,15 @@
                                 </ul>
                             </li>
                         <?php } ?>
+                            <?php if(in_array(CMS_PATH . '/cms_sidebar', $permission_authen) or in_array('admin', $permission_authen)) { ?>
+                            <li class="<?= (isset($menu_active) and $menu_active == 'sidebar') ? 'active' : ''; ?>">
+                                <a href="<?= site_url('cms/cms_sidebar'); ?>">
+                                    <i class="fa fa-bookmark-o"></i>
+                                    <span class="title">Sidebar</span>
+                                    <span class="selected"></span>
+                                </a>
+                            </li>
+                        <?php } ?>
                         <?php if(in_array(CMS_PATH . '/cms_event', $permission_authen) or in_array('admin', $permission_authen)) { ?>
                             <li class="<?= (isset($menu_active) and $menu_active == 'event') ? 'active' : ''; ?>">
                                 <a href="<?= site_url('cms/cms_event'); ?>">

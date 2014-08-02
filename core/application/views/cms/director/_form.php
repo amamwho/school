@@ -183,13 +183,7 @@
                         <div class="form-actions fluid action-full">
                             <div class="col-md-offset-3 col-md-9">
                                 <button type="submit" class="btn green">Submit</button>
-                                <?php if(isset($staff_category_id) and $staff_category_id) { ?>
-                                    <a href="<?= site_url('cms/cms_staff/staffList/'.$staff_category_id); ?>" class="btn default">Cancel</a>
-                                <?php } else if(isset($director_data['staff_category_id']) and $director_data['staff_category_id']) { ?>
-                                    <a href="<?= site_url('cms/cms_staff/staffList/'.$director_data['staff_category_id']); ?>" class="btn default">Cancel</a>
-                                <?php } else { ?>
-                                    <a href="<?= site_url('cms/cms_staff'); ?>" class="btn default">Cancel</a>
-                                <?php } ?>
+                                <a href="<?= site_url('cms/cms_director'); ?>" class="btn default">Cancel</a>
                             </div>
                         </div>
                 </form>

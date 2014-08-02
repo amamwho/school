@@ -16,7 +16,6 @@ class Cms_director extends Base_cms {
         $this->data['menu_active'] = 'human';
         $this->data['sub_menu_active'] = 'director';
         
-        $this->load->model('cms/constants_model');
         $this->load->model('cms/director_model');
         $this->images_path_director = $this->config->item('root_upload').$this->config->item('images_path_director');
         $this->load->library('custom_upload', array('upload_path' => $this->images_path_director));

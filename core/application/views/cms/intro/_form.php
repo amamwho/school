@@ -9,6 +9,11 @@
 <link rel="stylesheet" type="text/css" href="assets/cms/metronic/plugins/bootstrap-fileinput/bootstrap-fileinput.css"/>
 <script src="assets/cms/metronic/plugins/bootstrap-fileinput/bootstrap-fileinput.js" type="text/javascript"></script>
 <!-- END FILEINPUT -->
+<!-- END EDITOR -->
+<!-- BEGIN COLORPICKER -->
+<link rel="stylesheet" type="text/css" href="assets/cms/colpick_jquery_color-picker/css/colpick.css"/>
+<script src="assets/cms/colpick_jquery_color-picker/js/colpick.js" type="text/javascript"></script>
+<!-- END COLORPICKER -->
 <!-- END PAGE LEVEL PLUGINS -->
 <div class="row">
     <div class="col-md-12">
@@ -143,7 +148,7 @@
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="bg_color">สีพื้นหลัง</label>
-                            <div class="col-md-6">
+                            <div class="col-md-1">
                                 <input type="text" class="form-control" name="bg_color" id="bg_color" <?= (isset($intro_data['bg_color']) and $intro_data['bg_color']) ? 'value="' . $intro_data['bg_color'] . '"' : ''; ?>>
                             </div>
                         </div>
@@ -181,3 +186,17 @@
         </div>
     </div>
 </div>
+    <script>
+        $(function(){
+            $('#bg_color').colpick({
+                layout:'hex',
+                submit:0,
+                onChange:function(hsb,hex,rgb,el,bySetColor) {
+                    $(el).css('border-color','#'+hex);
+                    if(!bySetColor) $(el).val(hex);
+                }
+            }).keyup(function(){
+                $(this).colpickSetColor(this.value);
+            });
+        });
+    </script>

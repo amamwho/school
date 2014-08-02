@@ -116,6 +116,15 @@
                     </div>
                 <?php } ?>
                 <hr>
+                <?php if(isset($left_sidebar) and $left_sidebar) { ?>
+                    <?php foreach($left_sidebar as $v_left_sidebar) { ?>
+                        <div class="panel panel-default">
+                            <div class="panel-heading"><span class="glyphicon glyphicon-bookmark"></span><?= $v_left_sidebar['name']; ?></div>
+                            <div class="panel-body"><?= $v_left_sidebar['detail']; ?></div>
+                        </div>
+                        <hr>
+                    <?php } ?>
+                <?php } ?>
                 <div class="panel panel-default">
                     <div class="panel-heading"><span class="glyphicon glyphicon-bookmark"></span>Title</div>
                     <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
@@ -163,6 +172,15 @@
                     </div>
                 </div>
                 <hr>
+                <?php if(isset($right_sidebar) and $right_sidebar) { ?>
+                    <?php foreach($right_sidebar as $v_right_sidebar) { ?>
+                        <div class="panel panel-default">
+                            <div class="panel-heading"><span class="glyphicon glyphicon-bookmark"></span><?= $v_right_sidebar['name']; ?></div>
+                            <div class="panel-body"><?= $v_right_sidebar['detail']; ?></div>
+                        </div>
+                        <hr>
+                    <?php } ?>
+                <?php } ?>
                 <div class="panel panel-default">
                     <div class="panel-heading"><span class="glyphicon glyphicon-bookmark"></span>Title</div>
                     <div class="panel-body">Content here..</div>
@@ -199,5 +217,15 @@
         <!-- ########################### Plugin ########################### -->
         
         <script src="assets/front/basic/js/scripts.js"></script>
+        <?php $session_intro = $this->session->userdata('intro'); ?>
+        <?php if((isset($intro) and $intro) and empty($session_intro)) { ?>
+            <?php $this->session->set_userdata('intro', 'true'); ?>
+            <a class="intro" href="<?= site_url('intro/detail/'.$intro['intro_id']); ?>"></a>
+            <script>
+                $(function(){
+                    $('.intro').click();
+                });
+            </script>
+        <?php } ?>
     </body>
 </html>

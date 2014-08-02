@@ -6,6 +6,7 @@ $(function(){
     // End the Carousel
     // Begin ColorBox
         $(".gallery").colorbox({rel:'gallery', transition:"fade"});
+        $(".intro").colorbox({iframe:true, width:"90%", height:"90%"});
     //  End ColorBox 
     // Begin Calendar
     var options = {
