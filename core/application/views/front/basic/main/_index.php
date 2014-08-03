@@ -6,7 +6,17 @@
                 <?php foreach ($post[$v_post_category['post_category_id']] as $v_post) { ?>
                     <div class="col-lg-4">
                         <div class="thumbnail no-border">
-                            <a href="<?= site_url('post/detail/'.$v_post['post_id']); ?>" role="button"><img src="<?= getPostThumb($v_post['thumb']); ?>"></a>
+                            <a href="<?= site_url('post/detail/'.$v_post['post_id']); ?>" role="button">
+                                <?php if(isset($v_post['vdo_type']) and $v_post['vdo_type'] == 'E') { ?>
+                                    <?php if(preg_match_all('/embed\/(.*?)\"/',$v_post['vdo'],$match)) { ?>    
+                                        <img src="http://i.ytimg.com/vi/<?= $match[1][0]; ?>/mqdefault.jpg">      
+                                    <?php } else { ?>
+                                        <img src="<?= getPostThumb($v_post['thumb']); ?>">
+                                    <?php } ?>
+                                <?php } else { ?>
+                                    <img src="<?= getPostThumb($v_post['thumb']); ?>">
+                                <?php } ?>
+                            </a>
                             <a href="<?= site_url('post/detail/'.$v_post['post_id']); ?>" role="button"><h3><?= (isset($v_post['title']) and $v_post['title']) ? $v_post['title'] : ''; ?></h3></a>
                             <div>
                                 <?= (isset($v_post['content']) and $v_post['content']) ? $v_post['content'] : ''; ?>

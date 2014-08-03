@@ -7,10 +7,12 @@ class Post extends Base_front {
 		parent::__construct();
                 
                 $this->load->model('post_model');
+                $this->load->model('gallery_model');
 	}
         
         public function detail($id = '') {
                 $data['post'] = $this->post_model->getPostfByID($id);
+                $data['gallery'] = $this->gallery_model->getGalleryByPostID($id);
             
                 if (empty($id) or !$data['post'])
                     redirect(base_url());

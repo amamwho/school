@@ -101,6 +101,30 @@ if (!function_exists('getPostImage')) {
 		if (isset($file) and file_exists($full_path) and is_file($full_path))
 			return $full_path;
 		else
-			return 'assets/front/basic/images/postimage.png';
+			return 'assets/front/basic/images/image.png';
+	}
+}
+
+if (!function_exists('getGalleryThumb')) {
+	function getGalleryThumb($file) {
+		$ci =& get_instance();
+		$path = $ci->config->item('root_upload').$ci->config->item('images_path_gallery');
+		$full_path = $path.$file;
+		if (isset($file) and file_exists($full_path) and is_file($full_path))
+			return $full_path;
+		else
+			return 'assets/front/basic/images/postthumb.png';
+	}
+}
+
+if (!function_exists('getGalleryImage')) {
+	function getGalleryImage($file) {
+		$ci =& get_instance();
+		$path = $ci->config->item('root_upload').$ci->config->item('images_path_gallery');
+		$full_path = $path.$file;
+		if (isset($file) and file_exists($full_path) and is_file($full_path))
+			return $full_path;
+		else
+			return 'assets/front/basic/images/image.png';
 	}
 }

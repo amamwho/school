@@ -10,12 +10,12 @@ $(function(){
     //  End ColorBox 
     // Begin Calendar
     var options = {
-        events_source: 'assets/front/plugin/bootstrap-calendar/events.json.php',
+        events_source: 'main/eventCalendar',
         view: 'month',
         tmpl_path: 'assets/front/plugin/bootstrap-calendar/tmpls/',
         language: 'th-TH',
         tmpl_cache: false,
-        day: '2013-03-12',
+        //day: '2013-03-12',
         onAfterEventsLoad: function(events) {
             if(!events) {
                 return;
