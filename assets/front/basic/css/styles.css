@@ -16,6 +16,8 @@ body {
     background-color: #fff;
     border: 1px solid #ccc;
     margin-bottom: 30px;
+    padding-left: 0;
+    padding-right: 0;
 }
 .header-img {
     padding: 0;
@@ -86,6 +88,7 @@ nav#navigation .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .
 }
 .director img {
     margin-bottom: 20px;
+    padding: 0;
 }
 .director h4 {
     text-align: center;
