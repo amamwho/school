@@ -28,11 +28,13 @@ class Base_front extends CI_Controller {
 		$loadedData = array();
                 $loadedData['header'] = $this->load->view('front/' . $this->layout_name . '/header/_header_tag', $data, true);
                 $loadedData['intro'] = $this->intro_model->getIntro();
-                $loadedData['main_banner'] = $this->banner_model->getBannerByCategory(1);
+                //$loadedData['main_banner'] = $this->banner_model->getBannerByCategory(1);
                 $loadedData['left_banner'] = $this->banner_model->getBannerByCategory(2);
+                $loadedData['right_banner'] = $this->banner_model->getBannerByCategory(3);
                 $loadedData['left_sidebar'] = $this->sidebar_model->getSideByPosition(1);
                 $loadedData['right_sidebar'] = $this->sidebar_model->getSideByPosition(2);
-                $loadedData['footer_sidebar'] = $this->sidebar_model->getSideByPosition(3);
+                $loadedData['center_sidebar'] = $this->sidebar_model->getSideByPosition(3);
+                $loadedData['footer_sidebar'] = $this->sidebar_model->getSideByPosition(4);
                 $loadedData['latest_director'] = $this->director_model->getLatestDirector();
 		$loadedData['content_for_layout'] = $this->load->view($view, $data, true);
 		if ($return) {

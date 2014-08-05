@@ -17,6 +17,14 @@ body {
     border: 1px solid #ccc;
     margin-bottom: 30px;
 }
+.header-img {
+    padding: 0;
+}
+.header-img img {
+    padding: 0;
+    border: 1px solid #ccc;
+    border-bottom: none;
+}
 nav#navigation {
     background-color: #2061c7;
 }
@@ -70,6 +78,9 @@ nav#navigation .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .
 .sidebar-banner img:last-child, .sidebar-banner a:last-child {
     margin: 0px;
 }
+.sidebar-banner img.banner {
+    padding: 0;
+}
 .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
     border-color: #ccc;
 }
@@ -121,6 +132,10 @@ div.profile-detail {
 .embed-vdo iframe {
     max-width: 100%;
 }
+.center-sidebar iframe {
+    margin: 0 auto;
+    display: block;
+}
 /* Begin Custom Pagination */
 .row-pagination {
     text-align: right;
@@ -128,6 +143,10 @@ div.profile-detail {
 /* End Custom Pagination */
 
 /* Begin Custom Carousel Slide */
+.slide {
+    margin: 25px -15px 0;
+    border: 1px solid #ccc;
+}
 .item,
 .active,
 .carousel-inner {

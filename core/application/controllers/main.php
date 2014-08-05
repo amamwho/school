@@ -16,6 +16,7 @@ class Main extends Base_front {
                         $data['post'][$v_post_category['post_category_id']] = $this->post_model->getPostByCategory($v_post_category['post_category_id'], 3, 0);
                     }
                 }
+                $data['main_banner'] = $this->banner_model->getBannerByCategory(1);
 		$this->view($this->front.'/main/_index', $data);
 	}
         

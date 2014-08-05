@@ -33,3 +33,12 @@ if (!function_exists('addhttp')) {
         return $url;
     }
 }
+
+if (!function_exists('cutCaption')) {
+    function cutCaption($str) {
+        if(strlen($str) > 200)
+            return mb_substr($str, 0, 200, 'UTF-8') . '...';
+        else
+            return $str;
+    }
+}

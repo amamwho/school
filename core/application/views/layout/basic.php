@@ -55,67 +55,29 @@
             </div>
         </nav>
             
-        <div id="myCarousel" class="container carousel slide">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-            </ol>
-            
-            <!-- Wrapper for slides -->
-            <?php if(isset($main_banner) and $main_banner) { ?>
-                <div class="carousel-inner">
-                    <?php foreach($main_banner as $key_main_banner => $v_main_banner) { ?>
-                        <div class="item <?= ($key_main_banner === 0) ? 'active' : ''; ?>">
-                            <?php if(isset($v_main_banner['image']) and $v_main_banner['image']) { ?>
-                                <img class="img-slide" src="<?= getSideBannerImage($v_main_banner['image']); ?>">
-                            <?php } ?>
-                            <?php if(isset($v_main_banner['short_description']) and $v_main_banner['short_description']) { ?>
-                                <div class="carousel-caption">
-                                    <h1><?= $v_main_banner['short_description']; ?></h1>
-                                </div>
-                            <?php } ?>
-                        </div>
-                    <?php } ?>
-                </div>
-            <?php } ?>
-            
-            <!-- Controls -->
-            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                <span class="icon-prev"></span>
-            </a>
-            <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                <span class="icon-next"></span>
-            </a>
+        <div class="container header-img">
+            <img class="col-sm-12" src="assets/front/basic/images/header.jpg">
         </div>
         
         <div class="container basic">
 
             <!--left-->
             <div class="col-sm-3 side">
-                <div class="panel panel-default">
-                    <div class="panel-heading"><span class="glyphicon glyphicon-bookmark"></span>Facebook</div>
-                    <div class="panel-body">
-                        <iframe class="col-sm-12" src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2FFacebookDevelopers&amp;width=407&amp;height=258&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=false&amp;appId=704838176241336" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:258px;" allowTransparency="true"></iframe>
-                    </div>
-                </div>
-                <hr>
                 <?php if(isset($left_banner) and $left_banner) { ?>
                     <div class="panel panel-default">
                         <div class="panel-heading"><span class="glyphicon glyphicon-bookmark"></span>หน่วยงานที่เกี่ยวข้อง</div>
                         <div class="panel-body sidebar-banner">
                             <?php foreach($left_banner as $v_left_banner) { ?>
                                 <?php if(isset($v_left_banner['link']) and $v_left_banner['link']) { ?>
-                                    <a href="<?= addhttp($v_left_banner['link']); ?>" target="_blank"><img class="col-sm-12" src="<?= getSideBannerImage($v_left_banner['image']); ?>"></a>
+                                    <a href="<?= addhttp($v_left_banner['link']); ?>" target="_blank"><img class="col-sm-12 banner" src="<?= getSideBannerImage($v_left_banner['image']); ?>"></a>
                                 <?php } else { ?>
-                                    <img class="col-sm-12" src="<?= $this->images_path_banner.$v_left_banner['image']; ?>">
+                                    <img class="col-sm-12 banner" src="<?= $this->images_path_banner.$v_left_banner['image']; ?>">
                                 <?php } ?>
                             <?php } ?>
                         </div>
                     </div>
+                    <hr>
                 <?php } ?>
-                <hr>
                 <?php if(isset($left_sidebar) and $left_sidebar) { ?>
                     <?php foreach($left_sidebar as $v_left_sidebar) { ?>
                         <div class="panel panel-default">
@@ -143,6 +105,21 @@
             <!--center-->
             <div class="col-sm-6">
                 <?= $content_for_layout; ?>
+                <?php if($this->router->fetch_class().'/'.$this->router->fetch_method() == 'main/index') { ?>
+                    <?php if(isset($center_sidebar) and $center_sidebar) { ?>
+                        <?php foreach($center_sidebar as $v_center_sidebar) { ?>
+                            <div class="row">  
+                                <h2 class="col-lg-12 category-header"><span class="glyphicon glyphicon-book left"></span><?= $v_center_sidebar['name']; ?></h2>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 center-sidebar">
+                                    <?= $v_center_sidebar['detail']; ?>
+                                </div>
+                            </div>
+                            <hr>
+                        <?php } ?>
+                    <?php } ?>
+                <?php } ?>
             </div><!--/center-->
 
             <!--right-->
@@ -172,6 +149,21 @@
                     </div>
                 </div>
                 <hr>
+                <?php if(isset($right_banner) and $right_banner) { ?>
+                    <div class="panel panel-default">
+                        <div class="panel-heading"><span class="glyphicon glyphicon-bookmark"></span>สิ่งที่หน้าสนใจ</div>
+                        <div class="panel-body sidebar-banner">
+                            <?php foreach($right_banner as $v_right_banner) { ?>
+                                <?php if(isset($v_right_banner['link']) and $v_right_banner['link']) { ?>
+                                    <a href="<?= addhttp($v_right_banner['link']); ?>" target="_blank"><img class="col-sm-12 banner" src="<?= getSideBannerImage($v_right_banner['image']); ?>"></a>
+                                <?php } else { ?>
+                                    <img class="col-sm-12 banner" src="<?= $this->images_path_banner.$v_right_banner['image']; ?>">
+                                <?php } ?>
+                            <?php } ?>
+                        </div>
+                    </div>
+                    <hr>
+                <?php } ?>
                 <?php if(isset($right_sidebar) and $right_sidebar) { ?>
                     <?php foreach($right_sidebar as $v_right_sidebar) { ?>
                         <div class="panel panel-default">

@@ -1,3 +1,37 @@
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <?php if(isset($main_banner) and $main_banner) { ?>
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <?php foreach($main_banner as $key_main_banner => $v_main_banner) { ?>
+                <li data-target="#myCarousel" data-slide-to="<?= $key_main_banner; ?>" <?= ($key_main_banner == 0) ? 'class="active"' : ''; ?>></li>
+            <?php } ?>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <?php foreach($main_banner as $key_main_banner => $v_main_banner) { ?>
+                <div class="item <?= ($key_main_banner === 0) ? 'active' : ''; ?>">
+                    <?php if(isset($v_main_banner['image']) and $v_main_banner['image']) { ?>
+                        <img class="img-slide" src="<?= getSideBannerImage($v_main_banner['image']); ?>">
+                    <?php } ?>
+                    <?php if(isset($v_main_banner['short_description']) and $v_main_banner['short_description']) { ?>
+                        <div class="carousel-caption">
+                            <h1><?= $v_main_banner['short_description']; ?></h1>
+                        </div>
+                    <?php } ?>
+                </div>
+            <?php } ?>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+    <?php } ?>
+</div>
 <?php if(isset($post_category) and $post_category) { ?>
     <?php foreach ($post_category as $v_post_category) { ?>
         <?php if((isset($v_post_category['post_category_id']) and $v_post_category['post_category_id']) and (isset($post[$v_post_category['post_category_id']]) and $post[$v_post_category['post_category_id']])) { ?>
@@ -19,7 +53,7 @@
                             </a>
                             <a href="<?= site_url('post/detail/'.$v_post['post_id']); ?>" role="button"><h3><?= (isset($v_post['title']) and $v_post['title']) ? $v_post['title'] : ''; ?></h3></a>
                             <div>
-                                <?= (isset($v_post['content']) and $v_post['content']) ? $v_post['content'] : ''; ?>
+                                <?= (isset($v_post['content']) and $v_post['content']) ? cutCaption($v_post['content']) : ''; ?>
                             </div>
                             <p><a href="<?= site_url('post/detail/'.$v_post['post_id']); ?>" role="button">อ่านต่อ.. »</a></p>
                         </div>
