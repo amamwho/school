@@ -306,6 +306,15 @@
                                 </a>
                             </li>
                         <?php } ?>
+                        <?php if(in_array(CMS_PATH . '/cms_menu', $permission_authen) or in_array('admin', $permission_authen)) { ?>
+                            <li class="<?= (isset($menu_active) and $menu_active == 'menu') ? 'active' : ''; ?>">
+                                <a href="<?= site_url('cms/cms_menu'); ?>">
+                                    <i class="fa fa-list"></i>
+                                    <span class="title">เมนู</span>
+                                    <span class="selected"></span>
+                                </a>
+                            </li>
+                        <?php } ?>
                         <?php if(in_array(CMS_PATH . '/cms_user', $permission_authen) or in_array('admin', $permission_authen)) { ?>
                             <li class="<?= (isset($menu_active) and $menu_active == 'user') ? 'active' : ''; ?>">
                                 <a href="<?= site_url('cms/cms_user'); ?>">

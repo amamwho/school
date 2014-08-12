@@ -7,12 +7,23 @@
 </h3>
 <?php if (isset($post['vdo']) and $post['vdo'] and $post['vdo_type'] == 'E') { ?>
     <div class="embed-vdo"><?= $post['vdo']; ?></div>
+<?php } else if (isset($post['vdo']) and $post['vdo'] and $post['vdo_type'] == 'F') { ?>
+    ​<script src="assets/front/plugin/jwplayer/jwplayer.js" ></script>
+    <div id="embed-vdo" class="embed-vdo"><?= $post['vdo']; ?></div>
+    <script type="text/javascript">
+        jwplayer("embed-vdo").setup({
+            flashplayer: "assets/front/plugin/jwplayer/jw_player.swf",
+            file: "<?= base_url().$this->vdo_path.$post['vdo']; ?>",
+            width: "100%",
+            aspectratio: "16:9"
+        });
+    </script>
 <?php } ?>
 <?php if (isset($post['image']) and $post['image']) { ?>
     <img src="<?= getPostImage($post['image']); ?>" class="img-responsive">
     <hr>
 <?php } ?>
-<p class="lead">Science cuts two ways, of course; its products can be used for both good and evil. But there's no turning back from science. The early warnings about technological dangers also come from science.</p>
+<!--<p class="lead"></p>-->
 <?= (isset($post['content']) and $post['content']) ? $post['content'] : ''; ?>
 <hr>
 <?php if(isset($gallery) and $gallery) { ?>

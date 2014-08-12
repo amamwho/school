@@ -80,7 +80,7 @@
                         */?>
                         <?php if(isset($type) and $type == 'I') { ?>
                             <div class="form-group">
-                                <label class="col-md-3 control-label" for="category">หมวดหมู่ *</label>
+                                <label class="col-md-3 control-label" for="category">หมวดหมู่</label>
                                 <div class="col-md-6">
                                     <style> option[disabled] { display:none; } </style>
                                     <select class="form-control" name="category" id="category">

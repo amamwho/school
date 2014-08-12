@@ -2,6 +2,9 @@
 
 class Calendar_model extends CI_Model {
 	private $maintable = 'calendar';
+        private $limit = 20;
+        private $offset = 0;
+        
 	function __construct() {
 		parent::__construct();
 	}
@@ -18,9 +21,11 @@ class Calendar_model extends CI_Model {
 		if (!is_null($order_by)) {
 			$this->db->order_by($order_by);
 		}
-		if (!is_null($limit)) {
-			$this->db->limit($limit, $offset);
-		}
+		if (!is_null($limit) and !is_null($offset)) {
+                    $this->db->limit($limit, $offset);
+                } else {
+                    $this->db->limit($this->limit, $this->offset);
+                }
 
 		$query = $this->db->get();
 

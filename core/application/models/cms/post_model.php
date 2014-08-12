@@ -64,7 +64,10 @@ class Post_model extends CI_Model {
 		$this->db->where('post_id', $id);
 		$query = $this->db->get();
 		$result = ($query->num_rows() > 0) ? $query->row_array() : false;
-
+                
+                $this->db->where('menu_parent', $id);
+                $this->db->update($this->maintable, array('menu' => 0, 'menu_parent' => 0, 'menu_order' => 0));
+                
 		$this->db->delete($this->maintable, array('post_id' => $id));
 
 		return $result;

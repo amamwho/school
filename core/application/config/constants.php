@@ -63,6 +63,7 @@ $cms_permission = array(
     CMS_PATH . '/cms_document' => 'เอกสาร',
     CMS_PATH . '/cms_event' => 'กิจกรรม',
     CMS_PATH . '/cms_intro' => 'Intro',
+    CMS_PATH . '/cms_menu' => 'เมนู',
     CMS_PATH . '/cms_post' => 'โพส',
     CMS_PATH . '/cms_post_category' => 'ประเภทโพส',
     CMS_PATH . '/cms_school' => 'ข้อมูลโรงเรียน',

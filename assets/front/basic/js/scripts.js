@@ -80,4 +80,10 @@ $(function(){
         //e.stopPropagation();
         });
     // End Calendar
+    $('.img').mouseover(function(){
+         $(this).children('.caption').children(".ani").animate({top:"0px"});
+    });
+    $('.img').mouseleave(function(){
+         $(this).children('.caption').children(".ani").animate({top:"60px"});
+    });
 });

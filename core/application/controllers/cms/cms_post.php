@@ -191,7 +191,7 @@ class Cms_post extends Base_cms {
                     'status' => (isset($_POST['status']) and $_POST['status']) ? $_POST['status'] : 0,
                     'type' => (isset($_POST['type']) and $_POST['type']) ? $_POST['type'] : 'posts',
                     'post_category_id' => $post_category_id,
-                    'date_added' => date('Y-m-d H:i:s'),
+                    'date_modified' => date('Y-m-d H:i:s'),
                 );
                 //$this->debug($insert); exit;
 

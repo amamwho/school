@@ -39,7 +39,23 @@
                 <ul class="nav navbar-nav">
                     <li><a href="<?= site_url('director'); ?>">ผู้บริหาร</a></li>
                     <li><a href="<?= site_url('staff'); ?>">อาจารย์/บุคลากร</a></li>
-                    <li><a href="#">Link</a></li>
+                    <?php if(isset($menu['main_menu']) and $menu['main_menu']) { ?>
+                        <?php foreach ($menu['main_menu'] as $k_menu => $v_menu) { ?>
+                            <?php if(isset($menu['sub_menu'][$v_menu['post_id']]) and $menu['sub_menu'][$v_menu['post_id']]) { ?>
+                                <li class="dropdown">
+                                    <a href="<?= site_url('post/page/'.$v_menu['post_id']); ?>" class="dropdown-toggle" data-toggle="dropdown"><?= $v_menu['title']; ?> <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <?php foreach ($menu['sub_menu'][$v_menu['post_id']] as $k_sub_menu => $v_sub_menu) { ?>
+                                            <li><a href="<?= site_url('post/page/'.$v_sub_menu['post_id']); ?>"><?= $v_sub_menu['title']; ?></a></li>
+                                        <?php } ?>
+                                    </ul>
+                                </li>
+                            <?php } else { ?>
+                                <li><a href="<?= site_url('post/page/'.$v_menu['post_id']); ?>"><?= $v_menu['title']; ?></a></li>
+                            <?php } ?>
+                        <?php } ?>
+                    <?php } ?>
+                    <?/*<li><a href="#">Link</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
                         <ul class="dropdown-menu">
@@ -50,29 +66,57 @@
                             <li class="divider"></li>
                             <li><a href="#">One more separated link</a></li>
                         </ul>
-                    </li>
+                    </li>*/?>
                 </ul>
             </div>
         </nav>
             
-        <div class="container header-img">
-            <img class="col-sm-12" src="assets/front/basic/images/header.jpg">
-        </div>
+        <?php if(isset($header_banner) and $header_banner) { ?>
+            <div class="container header-img">
+                <?php if(isset($header_banner[0]['link']) and $header_banner[0]['link']) { ?>
+                    <a href="<?= addhttp($header_banner[0]['link']); ?>" target="_blank">
+                        <img class="col-sm-12" src="<?= getSideBannerImage($header_banner[0]['image']); ?>" <?= (isset($header_banner[0]['short_description']) and $header_banner[0]['short_description']) ? 'alt="'.$header_banner[0]['short_description'].'"' : ''; ?>>
+                    </a>
+                <?php } else { ?>
+                    <img class="col-sm-12" src="<?= getSideBannerImage($header_banner[0]['image']); ?>" <?= (isset($header_banner[0]['short_description']) and $header_banner[0]['short_description']) ? 'alt="'.$header_banner[0]['short_description'].'"' : ''; ?>>
+                <?php } ?>
+            </div>
+        <?php } ?>
         
         <div class="container basic">
 
             <!--left-->
             <div class="col-sm-3 side">
+                <div class="panel panel-default">
+                    <div class="panel-heading"><span class="glyphicon glyphicon-bookmark"></span>เมนูหลัก</div>
+                    <div class="panel-body sidebar-banner">
+                        <ul class="col-sm-12">
+                            <li><a href="<?= base_url(); ?>">หน้าหลัก</a></li>
+                            <li><a href="<?= site_url('director'); ?>">ผู้บริหาร</a></li>
+                            <li><a href="<?= site_url('staff'); ?>">อาจารย์/บุคลากร</a></li>
+                            <li><a href="<?= site_url('document/general'); ?>">เอกสารดาวน์โหลด</a></li>
+                            <li><a href="<?= site_url('document/inside'); ?>">เอกสารภายใน</a></li>
+                            <?php if(isset($menu['main_menu']) and $menu['main_menu']) { ?>
+                                <?php foreach ($menu['main_menu'] as $k_menu => $v_menu) { ?>
+                                    <li><a href="<?= site_url('post/page/'.$v_menu['post_id']); ?>"><?= $v_menu['title']; ?></a></li>
+                                <?php } ?>
+                            <?php } ?>
+                        </ul>
+                    </div>
+                </div>
+                <hr>
                 <?php if(isset($left_banner) and $left_banner) { ?>
                     <div class="panel panel-default">
                         <div class="panel-heading"><span class="glyphicon glyphicon-bookmark"></span>หน่วยงานที่เกี่ยวข้อง</div>
                         <div class="panel-body sidebar-banner">
                             <?php foreach($left_banner as $v_left_banner) { ?>
-                                <?php if(isset($v_left_banner['link']) and $v_left_banner['link']) { ?>
-                                    <a href="<?= addhttp($v_left_banner['link']); ?>" target="_blank"><img class="col-sm-12 banner" src="<?= getSideBannerImage($v_left_banner['image']); ?>"></a>
-                                <?php } else { ?>
-                                    <img class="col-sm-12 banner" src="<?= $this->images_path_banner.$v_left_banner['image']; ?>">
-                                <?php } ?>
+                                <div class="img">
+                                    <?php if(isset($v_left_banner['link']) and $v_left_banner['link']) { ?>
+                                        <a href="<?= addhttp($v_left_banner['link']); ?>" target="_blank"><img class="banner" src="<?= getSideBannerImage($v_left_banner['image']); ?>" <?= (isset($v_left_banner['short_description']) and $v_left_banner['short_description']) ? 'alt="'.$v_left_banner['short_description'].'"' : ''; ?>></a>
+                                    <?php } else { ?>
+                                        <img class="banner" src="<?= $this->images_path_banner.$v_left_banner['image']; ?>">
+                                    <?php } ?>
+                                </div>
                             <?php } ?>
                         </div>
                     </div>
@@ -87,7 +131,7 @@
                         <hr>
                     <?php } ?>
                 <?php } ?>
-                <div class="panel panel-default">
+                <!--<div class="panel panel-default">
                     <div class="panel-heading"><span class="glyphicon glyphicon-bookmark"></span>Title</div>
                     <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
                         Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
@@ -99,7 +143,7 @@
                     <div class="panel-heading"><span class="glyphicon glyphicon-bookmark"></span>Title</div>
                     <div class="panel-body">Content here..</div>
                 </div>
-                <hr>
+                <hr>-->
             </div><!--/left-->
 
             <!--center-->
@@ -108,9 +152,11 @@
                 <?php if($this->router->fetch_class().'/'.$this->router->fetch_method() == 'main/index') { ?>
                     <?php if(isset($center_sidebar) and $center_sidebar) { ?>
                         <?php foreach($center_sidebar as $v_center_sidebar) { ?>
-                            <div class="row">  
-                                <h2 class="col-lg-12 category-header"><span class="glyphicon glyphicon-book left"></span><?= $v_center_sidebar['name']; ?></h2>
-                            </div>
+                            <?php if(isset($v_center_sidebar['name']) and $v_center_sidebar['name'] != '-') { ?>
+                                <div class="row">  
+                                    <h2 class="col-lg-12 category-header"><span class="glyphicon glyphicon-book left"></span><?= $v_center_sidebar['name']; ?></h2>
+                                </div>
+                            <?php } ?>
                             <div class="row">
                                 <div class="col-xs-12 center-sidebar">
                                     <?= $v_center_sidebar['detail']; ?>
@@ -128,7 +174,7 @@
                     <div class="panel-heading"><span class="glyphicon glyphicon-bookmark"></span>ผุ้อำนวยการโรงเรียน</div>
                     <div class="panel-body director">
                         <a href="<?= site_url('director/profile/'.$latest_director['director_id']); ?>">
-                            <img class="col-sm-12" src="<?= $this->images_path_director.$latest_director['image']; ?>">
+                            <div class="col-sm-12 img"><img src="<?= $this->images_path_director.$latest_director['thumb']; ?>"></div>
                             <h4><?= $latest_director['firstname'].' '.$latest_director['lastname']; ?></h4>
                         </a>
                     </div>
@@ -154,11 +200,13 @@
                         <div class="panel-heading"><span class="glyphicon glyphicon-bookmark"></span>สิ่งที่หน้าสนใจ</div>
                         <div class="panel-body sidebar-banner">
                             <?php foreach($right_banner as $v_right_banner) { ?>
-                                <?php if(isset($v_right_banner['link']) and $v_right_banner['link']) { ?>
-                                    <a href="<?= addhttp($v_right_banner['link']); ?>" target="_blank"><img class="col-sm-12 banner" src="<?= getSideBannerImage($v_right_banner['image']); ?>"></a>
-                                <?php } else { ?>
-                                    <img class="col-sm-12 banner" src="<?= $this->images_path_banner.$v_right_banner['image']; ?>">
-                                <?php } ?>
+                                <div class="img">
+                                    <?php if(isset($v_right_banner['link']) and $v_right_banner['link']) { ?>
+                                        <a href="<?= addhttp($v_right_banner['link']); ?>" target="_blank"><img class="col-sm-12 banner" src="<?= getSideBannerImage($v_right_banner['image']); ?>"></a>
+                                    <?php } else { ?>
+                                        <img class="col-sm-12 banner" src="<?= $this->images_path_banner.$v_right_banner['image']; ?>">
+                                    <?php } ?>
+                                </div>
                             <?php } ?>
                         </div>
                     </div>
@@ -173,12 +221,8 @@
                         <hr>
                     <?php } ?>
                 <?php } ?>
-                <div class="panel panel-default">
-                    <div class="panel-heading"><span class="glyphicon glyphicon-bookmark"></span>Title</div>
-                    <div class="panel-body">Content here..</div>
-                </div>
                 <hr>
-                <div class="panel panel-default">
+                <!--<div class="panel panel-default">
                     <div class="panel-heading"><span class="glyphicon glyphicon-bookmark"></span>Title</div>
                     <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
                         Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
@@ -190,7 +234,7 @@
                     <div class="panel-heading"><span class="glyphicon glyphicon-bookmark"></span>Title</div>
                     <div class="panel-body">Content here..</div>
                 </div>
-                <hr>
+                <hr>-->
             </div><!--/right-->
             <hr>
         </div><!--/container-fluid-->

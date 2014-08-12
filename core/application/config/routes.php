@@ -41,6 +41,8 @@
 $route['default_controller'] = "main";
 $route['404_override'] = '';
 
+$route['loadFile/(:any)'] = "document/loadFile/$1";
+
 $route['cms'] = "cms/cms_dashboard";
 $route['cms/cms_document/download'] = "cms/cms_document/index/D";
 $route['cms/cms_document/download/(:num)'] = "cms/cms_document/index/D/$1";

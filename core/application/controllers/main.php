@@ -12,8 +12,11 @@ class Main extends Base_front {
 	public function index() {
                 $data['post_category'] = $this->post_model->getPostCategory();
                 if(isset($data['post_category']) and $data['post_category']) {
-                    foreach ($data['post_category'] as $v_post_category) {
-                        $data['post'][$v_post_category['post_category_id']] = $this->post_model->getPostByCategory($v_post_category['post_category_id'], 3, 0);
+                    foreach ($data['post_category'] as $k_post_category => $v_post_category) {
+                        if($k_post_category == 0)
+                            $data['post'][$v_post_category['post_category_id']] = $this->post_model->getPostByCategory($v_post_category['post_category_id'], 4, 0);
+                        else
+                            $data['post'][$v_post_category['post_category_id']] = $this->post_model->getPostByCategory($v_post_category['post_category_id'], 3, 0);
                     }
                 }
                 $data['main_banner'] = $this->banner_model->getBannerByCategory(1);

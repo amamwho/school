@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-lg-12">
-        <h2 class="page-header">ทำเนียบผู้บริหาร</h2>
+        <h3 class="page-header">ทำเนียบผู้บริหาร</h3>
     </div>
 </div>
 <?php if(isset($director) and $director) { ?>

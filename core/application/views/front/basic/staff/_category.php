@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-lg-12">
-        <h2 class="page-header"><?= $staff_category['name']; ?></h2>
+        <h3 class="page-header"><?= $staff_category['name']; ?></h3>
     </div>
 </div>
 <?php if(isset($staff) and $staff) { ?>

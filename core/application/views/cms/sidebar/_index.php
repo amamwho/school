@@ -26,6 +26,7 @@
                             <tr>
                                 <td class="filter"></td>
                                 <td class="filter"><input type="text" name="name" class="form-control input-sm" id="name" placeholder="คำที่ต้องการค้นหา" <?= (isset($filter['name']) and $filter['name']) ? 'value="' . $filter['name'] . '"' : ''; ?> /></td>
+                                <td class="filter"></td>
                                 <td class="status filter">
                                     <select name="status" class="form-control input-sm" id="status">
                                         <option value=""></option>

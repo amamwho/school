@@ -49,6 +49,7 @@ class Cms_banner extends Base_cms {
     }
 
     public function insert() {
+        $this->data['banner_category'] = $this->banner_model->getBannerCategory();
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $this->setFormValidation();
             if ($this->form_validation->run() == FALSE) {
@@ -81,7 +82,6 @@ class Cms_banner extends Base_cms {
         } else {
             //$this->debug($data['stockstatus_list']);
             $this->setBreadcrumb(array(array('name' => 'Banner', 'link' => site_url('cms/cms_banner')), array('name' => 'เพิ่ม')));
-            $this->data['banner_category'] = $this->banner_model->getBannerCategory();
             $this->view('cms/banner/_form', $this->data);
         }
     }

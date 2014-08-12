@@ -49,6 +49,7 @@ class Cms_post_category extends Base_cms {
             } else {
                 $insert = array(
                     'name' => (isset($_POST['name']) and $_POST['name']) ? $_POST['name'] : '',
+                    'sort_order' => $_POST['sort_order'],
                 );
 
                 $result = $this->post_category_model->addPostCategory($insert);
@@ -74,6 +75,7 @@ class Cms_post_category extends Base_cms {
             } else {
                 $insert = array(
                     'name' => (isset($_POST['name']) and $_POST['name']) ? $_POST['name'] : '',
+                    'sort_order' => $_POST['sort_order'],
                 );
 
                 $result = $this->post_category_model->editPostCategory($post_category_id, $insert);

@@ -35,9 +35,9 @@ if (!function_exists('addhttp')) {
 }
 
 if (!function_exists('cutCaption')) {
-    function cutCaption($str) {
-        if(strlen($str) > 200)
-            return mb_substr($str, 0, 200, 'UTF-8') . '...';
+    function cutCaption($str, $leng = 200) {
+        if(strlen($str) > $leng)
+            return mb_substr($str, 0, $leng, 'UTF-8') . '...';
         else
             return $str;
     }

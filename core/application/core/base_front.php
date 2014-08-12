@@ -28,9 +28,10 @@ class Base_front extends CI_Controller {
 		$loadedData = array();
                 $loadedData['header'] = $this->load->view('front/' . $this->layout_name . '/header/_header_tag', $data, true);
                 $loadedData['intro'] = $this->intro_model->getIntro();
-                //$loadedData['main_banner'] = $this->banner_model->getBannerByCategory(1);
+                $loadedData['menu'] = $this->getMenu();
                 $loadedData['left_banner'] = $this->banner_model->getBannerByCategory(2);
                 $loadedData['right_banner'] = $this->banner_model->getBannerByCategory(3);
+                $loadedData['header_banner'] = $this->banner_model->getBannerByCategory(5, 1, 0);
                 $loadedData['left_sidebar'] = $this->sidebar_model->getSideByPosition(1);
                 $loadedData['right_sidebar'] = $this->sidebar_model->getSideByPosition(2);
                 $loadedData['center_sidebar'] = $this->sidebar_model->getSideByPosition(3);
@@ -55,6 +56,23 @@ class Base_front extends CI_Controller {
 		}
 		$this->output->enable_profiler(TRUE);
 		exit;
+	}
+        
+        protected function getMenu() {
+		$this->load->model('post_model');
+                $main_menu = $this->post_model->getMenu();
+                $data['main_menu'] = '';
+                $data['sub_menu'] = '';
+                if(isset($main_menu) and $main_menu) {
+                    $data['main_menu'] = $main_menu;
+                    foreach ($data['main_menu'] as $k_menu => $v_menu) {
+                        $sub_menu = $this->post_model->getMenuChild($v_menu['post_id']);
+                        if(isset($sub_menu) and $sub_menu) {
+                            $data['sub_menu'][$v_menu['post_id']] = $sub_menu;
+                        }
+                    }
+                }
+                return array('main_menu' => $data['main_menu'], 'sub_menu' => $data['sub_menu']);
 	}
 
 	protected function setPagination($url, $total, $limit, $offset) {
