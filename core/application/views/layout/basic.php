@@ -43,7 +43,7 @@
                         <?php foreach ($menu['main_menu'] as $k_menu => $v_menu) { ?>
                             <?php if(isset($menu['sub_menu'][$v_menu['post_id']]) and $menu['sub_menu'][$v_menu['post_id']]) { ?>
                                 <li class="dropdown">
-                                    <a href="<?= site_url('post/page/'.$v_menu['post_id']); ?>" class="dropdown-toggle" data-toggle="dropdown"><?= $v_menu['title']; ?> <b class="caret"></b></a>
+                                    <a href="<?= site_url('post/page/'.$v_menu['post_id']); ?>" class="dropdown-toggle"><?= $v_menu['title']; ?> <b class="caret"></b></a>
                                     <ul class="dropdown-menu">
                                         <?php foreach ($menu['sub_menu'][$v_menu['post_id']] as $k_sub_menu => $v_sub_menu) { ?>
                                             <li><a href="<?= site_url('post/page/'.$v_sub_menu['post_id']); ?>"><?= $v_sub_menu['title']; ?></a></li>

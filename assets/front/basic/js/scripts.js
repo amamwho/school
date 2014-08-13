@@ -86,4 +86,11 @@ $(function(){
     $('.img').mouseleave(function(){
          $(this).children('.caption').children(".ani").animate({top:"60px"});
     });
+    
+    $('li.dropdown').mouseover(function(){
+         $(this).addClass("open");
+    });
+    $('li.dropdown').mouseleave(function(){
+         $(this).removeClass("open");
+    });
 });
