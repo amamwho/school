@@ -30,7 +30,7 @@ class custom_upload {
     function uploadFile($input, $new_filename = '') {
         if ($new_filename)
             $this->config['file_name'] = $new_filename;
-        $this->config['allowed_types'] = 'doc|docx|xls|xlsx|pdf|ppt|rar|zip';
+        $this->config['allowed_types'] = 'doc|docx|dot|dotx|xls|xlsx|pdf|ppt|rar|zip';
         $this->config['max_size'] = '500000';
         $this->obj->load->library('upload');
         $this->obj->upload->initialize($this->config);

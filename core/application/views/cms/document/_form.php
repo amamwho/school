@@ -61,7 +61,7 @@
                                             </a>
                                         </div>
                                     </div>
-                                    <p class="help-block">เฉพาะไฟล์ .doc|.docx|.xls|.xlsx|.pdf|.ppt|.rar|.zip ขนาดไม่เกิน 3MB</p>
+                                    <p class="help-block">เฉพาะไฟล์ .doc|.docx|.dot|.dotx|.xls|.xlsx|.pdf|.ppt|.rar|.zip ขนาดไม่เกิน 3MB</p>
                                 </div>
                             </div>
                         <?php } ?>
