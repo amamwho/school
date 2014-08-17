@@ -49,8 +49,14 @@ nav#navigation .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .
     color: #FCCF2B;
     margin-right: 5px;
 }
+ul.sub-menu {
+    padding-left: 15px;
+}
 .side {
     margin-top: 25px;
+}
+.side .panel-body ul {
+    padding-left: 15px;
 }
 .panel-default {
     border-color: #ccc;
@@ -67,6 +73,7 @@ nav#navigation .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .
 }
 div.first-category {
     margin-top: 30px;
+    margin-bottom: 15px;
 }
 div.first-category .content-list {
     margin-left: -15px;
@@ -74,14 +81,21 @@ div.first-category .content-list {
 div.first-category .first-post {
     margin-bottom: -50px;
 }
-.first-post a {
+.first-category .view-all-category {
+    padding-top: 2px;
+    padding-bottom: 1px;
+    background-color: #2061c7;
+    border: 1px solid #ccc;
+}
+.first-category .view-all-category a {
     color: #fff;
 }
 div.first-category .caption {
-    height: 60px;
-    position: relative;
+    height: 50px;
+    position: absolute;
     overflow: hidden;
-    top: -60px;
+    width: 100%;
+    bottom: -1px;
 }
 h4.first-category {
     margin-top: 0;
@@ -89,17 +103,36 @@ h4.first-category {
     font-size: 14px;
     color: #fff;
     background-color: #2061c7;
-    border-color: #ccc;
+    border: 1px solid #ccc;
+}
+.first-post a {
+    color: #fff;
+}
+.second-category h4 {
+    float: left;
+    margin: 0 5px 0;
+}
+.second-category .glyphicon {
+    font-size: 14px;
+    margin-right: 5px;
+    color: #000;
 }
 .caption .ani{
-    height: 60px;
+    height: 50px;
     padding: 10px;
     text-align: left;
     background: #000;
     opacity: 0.5;
     color: #fff;
     position: relative;
-    top: 60px;
+    opacity: 0;
+    transition: opacity .5s ease-in-out;
+   -moz-transition: opacity .5s ease-in-out;
+   -webkit-transition: opacity .5s ease-in-out;
+    /*top: 50px;*/
+}
+.img:hover .caption .ani{
+    opacity: 0.6;
 }
 .glyphicon.category-header {
     margin-right: 10px;
@@ -114,6 +147,10 @@ h4.first-category {
 }
 .thumbnail.no-border {
     border: none;
+}
+.thumbnail>img, .thumbnail a>img {
+    border: 1px solid #ccc;
+    padding: 2px;
 }
 .sidebar-banner img, .sidebar-banner a {
     /*width: 100%;*/
@@ -131,6 +168,7 @@ h4.first-category {
 .img {
     text-align: center;
     margin-bottom: 5px;
+    position: relative;
 }
 .img img {
     max-width: 100%;

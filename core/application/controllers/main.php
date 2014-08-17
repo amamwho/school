@@ -15,6 +15,8 @@ class Main extends Base_front {
                     foreach ($data['post_category'] as $k_post_category => $v_post_category) {
                         if($k_post_category == 0)
                             $data['post'][$v_post_category['post_category_id']] = $this->post_model->getPostByCategory($v_post_category['post_category_id'], 4, 0);
+                        else if($k_post_category == 1)
+                            $data['post'][$v_post_category['post_category_id']] = $this->post_model->getPostByCategory($v_post_category['post_category_id'], 5, 0);
                         else
                             $data['post'][$v_post_category['post_category_id']] = $this->post_model->getPostByCategory($v_post_category['post_category_id'], 3, 0);
                     }

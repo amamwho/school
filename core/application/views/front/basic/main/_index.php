@@ -91,6 +91,19 @@
                         </div>
                     <?php } ?>
                 </div>
+            <?php } else if ($k_post_category == 1) { ?>
+                <div class="row second-category">
+                    <div class="col-lg-12 category-header">
+                        <h3 class="col-md-10"><span class="glyphicon glyphicon-book category-header"></span><?= $v_post_category['name']; ?></h3>
+                        <div class="col-md-2 view-all-category"><a href="<?= site_url('post/category/'.$v_post_category['post_category_id']); ?>">ดูทั้งหมด</a></div>
+                    </div>
+                    <?php foreach ($post[$v_post_category['post_category_id']] as $v_post) { ?>
+                        <div class="col-lg-12">
+                            <a href="<?= site_url('post/detail/'.$v_post['post_id']); ?>"><h4><span class="glyphicon glyphicon-share-alt"></span><?= (isset($v_post['title']) and $v_post['title']) ? $v_post['title'] : ''; ?></h4></a>
+                            <?= (isset($v_post['content']) and $v_post['content']) ? cutCaption($v_post['content'], 160) : ''; ?>
+                        </div>
+                    <?php } ?>
+                </div>
             <?php } else { ?>
                 <div class="row">
                     <div class="col-lg-12 category-header">

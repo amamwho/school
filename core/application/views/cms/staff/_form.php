@@ -213,6 +213,7 @@
                                         </a>
                                     </div>
                                 </div>
+                                <p class="help-block">กว้าง400px * สูง300px</p>
                             </div>
                         </div>
                         <div class="form-group">

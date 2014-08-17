@@ -80,12 +80,12 @@ $(function(){
         //e.stopPropagation();
         });
     // End Calendar
-    $('.img').mouseover(function(){
+    /*$('.img').mouseover(function(){
          $(this).children('.caption').children(".ani").animate({top:"0px"});
     });
     $('.img').mouseleave(function(){
-         $(this).children('.caption').children(".ani").animate({top:"60px"});
-    });
+         $(this).children('.caption').children(".ani").animate({top:"50px"});
+    });*/
     
     $('li.dropdown').mouseover(function(){
          $(this).addClass("open");

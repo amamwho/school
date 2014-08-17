@@ -57,7 +57,7 @@ class Cms_banner extends Base_cms {
                 $this->view('cms/banner/_form', $this->data);
             } else {
                 if (isset($_FILES['image']) and $_FILES['image']['error'] == 0) {
-                    $upload_data = $this->custom_upload->uploadImage('image', true, uniqid(), true, 332, 251);
+                    $upload_data = $this->custom_upload->uploadImage('image', true, uniqid(), true, 198, 150);
                     if(empty($upload_data['file_name'])) {
                         $this->debug($upload_data[0]); exit;
                     }
@@ -101,7 +101,7 @@ class Cms_banner extends Base_cms {
                 $this->view('cms/banner/_form', $this->data);
             } else {
                 if (isset($_FILES['image']) and $_FILES['image']['error'] == 0) {
-                    $upload_data = $this->custom_upload->uploadImage('image', true, uniqid(), true, 332, 251);
+                    $upload_data = $this->custom_upload->uploadImage('image', true, uniqid(), true, 198, 150);
                     if(empty($upload_data['file_name'])) {
                         $this->debug($upload_data[0]); exit;
                     }

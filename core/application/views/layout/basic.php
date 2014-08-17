@@ -98,7 +98,18 @@
                             <li><a href="<?= site_url('document/inside'); ?>">เอกสารภายใน</a></li>
                             <?php if(isset($menu['main_menu']) and $menu['main_menu']) { ?>
                                 <?php foreach ($menu['main_menu'] as $k_menu => $v_menu) { ?>
-                                    <li><a href="<?= site_url('post/page/'.$v_menu['post_id']); ?>"><?= $v_menu['title']; ?></a></li>
+                                    <?php if(isset($menu['sub_menu'][$v_menu['post_id']]) and $menu['sub_menu'][$v_menu['post_id']]) { ?>
+                                        <li>
+                                            <a href="<?= site_url('post/page/'.$v_menu['post_id']); ?>"><?= $v_menu['title']; ?></a>
+                                            <ul class="sub-menu">
+                                                <?php foreach ($menu['sub_menu'][$v_menu['post_id']] as $k_sub_menu => $v_sub_menu) { ?>
+                                                    <li><a href="<?= site_url('post/page/'.$v_sub_menu['post_id']); ?>"><?= $v_sub_menu['title']; ?></a></li>
+                                                <?php } ?>
+                                            </ul>
+                                        </li>
+                                    <?php } else { ?>
+                                        <li><a href="<?= site_url('post/page/'.$v_menu['post_id']); ?>"><?= $v_menu['title']; ?></a></li>
+                                    <?php } ?>
                                 <?php } ?>
                             <?php } ?>
                         </ul>

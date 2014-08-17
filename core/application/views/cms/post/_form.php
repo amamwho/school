@@ -82,7 +82,7 @@
                                         </a>
                                     </div>
                                 </div>
-                                <p class="help-block">917px * 375px</p>
+                                <p class="help-block">กว้าง554px * สูง312px</p>
                             </div>
                         </div>
                         <div class="form-group">

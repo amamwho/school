@@ -32,10 +32,17 @@
                             <div class="col-md-6">
                                 <style> option[disabled] { display:none; } </style>
                                 <select class="form-control" name="banner_category_id" id="banner_category_id">
-                                    <option disabled <?= (empty($banner_data['banner_category_id'])) ? 'selected' : ''; ?>>เลือกหมวดหมู่</option>
+                                    <option disabled <?= (empty($banner_data['banner_category_id'])) ? 'selected' : ''; ?> data-width="" data-height="">เลือกหมวดหมู่</option>
                                     <?php if(isset($banner_category) and $banner_category) { ?>
+                                        <?php $width = $height = 0;?>
                                         <?php foreach ($banner_category as $value_bc) { ?>
-                                    <option value="<?= $value_bc['banner_category_id']; ?>" <?= (isset($banner_data['banner_category_id']) and $banner_data['banner_category_id'] == $value_bc['banner_category_id']) ? 'selected' : ''; ?>><?= $value_bc['cate_name']; ?></option>
+                                            <?php if(isset($banner_data['banner_category_id']) and $banner_data['banner_category_id'] == $value_bc['banner_category_id']) { ?>
+                                                <option value="<?= $value_bc['banner_category_id']; ?>" data-width="<?= $value_bc['width']; ?>" data-height="<?= $value_bc['height']; ?>" selected><?= $value_bc['cate_name']; ?></option>
+                                                <?php $width = $value_bc['width']; ?>
+                                                <?php $height = $value_bc['height']; ?>
+                                            <?php } else { ?>
+                                                <option value="<?= $value_bc['banner_category_id']; ?>" data-width="<?= $value_bc['width']; ?>" data-height="<?= $value_bc['height']; ?>"><?= $value_bc['cate_name']; ?></option>
+                                            <?php } ?>
                                         <?php } ?>
                                     <?php } ?>
                                 </select>
@@ -72,7 +79,7 @@
                                         </a>
                                     </div>
                                 </div>
-                                <p class="help-block">917px * 375px</p>
+                                <p class="help-block">กว้าง<span id="width"><?= $width;?></span>px * สูง<span id="height"><?= $height;?></span>px</p>
                             </div>
                         </div>
                         <div class="form-group">
@@ -127,3 +134,9 @@
         </div>
     </div>
 </div>
+<script>
+    $( "#banner_category_id" ).change(function () {
+        $("span#width").html($("#banner_category_id option:selected").attr("data-width"));
+        $("span#height").html($("#banner_category_id option:selected").attr("data-height"));
+    })
+</script>

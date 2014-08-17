@@ -1,4 +1,10 @@
 <!-- BEGIN PAGE LEVEL PLUGINS -->
+<!-- BEGIN EDITOR -->
+<link rel="stylesheet" type="text/css" href="assets/cms/metronic/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css"/>
+<script type="text/javascript" src="assets/cms/metronic/plugins/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="assets/cms/metronic/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js"></script>
+<script type="text/javascript" src="assets/cms/metronic/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>
+<!-- END EDITOR -->
 <!-- END PAGE LEVEL PLUGINS -->
 <div class="row">
     <div class="col-md-12">
@@ -26,7 +32,7 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="detail">รายละเอียด *</label>
                             <div class="col-md-6">
-                                <textarea class="form-control" name="detail" rows="6" id="detail"><?= (isset($sidebar_data['detail']) and $sidebar_data['detail']) ? htmlentities($sidebar_data['detail']) : ''; ?></textarea>
+                                <textarea class="ckeditor form-control" name="detail" rows="6" id="detail"><?= (isset($sidebar_data['detail']) and $sidebar_data['detail']) ? $sidebar_data['detail'] : ''; ?></textarea>
                             </div>
                         </div>
                         <div class="form-group">
