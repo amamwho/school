@@ -98,9 +98,9 @@
                         <div class="col-md-2 view-all-category"><a href="<?= site_url('post/category/'.$v_post_category['post_category_id']); ?>">ดูทั้งหมด</a></div>
                     </div>
                     <?php foreach ($post[$v_post_category['post_category_id']] as $v_post) { ?>
-                        <div class="col-lg-12">
-                            <a href="<?= site_url('post/detail/'.$v_post['post_id']); ?>"><h4><span class="glyphicon glyphicon-share-alt"></span><?= (isset($v_post['title']) and $v_post['title']) ? $v_post['title'] : ''; ?></h4></a>
-                            <?= (isset($v_post['content']) and $v_post['content']) ? cutCaption($v_post['content'], 160) : ''; ?>
+                        <div class="col-lg-12 records">
+                            <a href="<?= site_url('post/detail/'.$v_post['post_id']); ?>"><h5><span class="glyphicon glyphicon-share-alt"></span><?= (isset($v_post['title']) and $v_post['title']) ? $v_post['title'] : ''; ?></h5></a>
+                            <?= (isset($v_post['content']) and $v_post['content']) ? cutCaption(stripHTMLTags($v_post['content'], 160)) : ''; ?>
                         </div>
                     <?php } ?>
                 </div>
@@ -126,7 +126,7 @@
                                 </a>
                                 <a href="<?= site_url('post/detail/'.$v_post['post_id']); ?>" role="button"><h3><?= (isset($v_post['title']) and $v_post['title']) ? $v_post['title'] : ''; ?></h3></a>
                                 <div>
-                                    <?= (isset($v_post['content']) and $v_post['content']) ? cutCaption($v_post['content']) : ''; ?>
+                                    <?= (isset($v_post['content']) and $v_post['content']) ? cutCaption(stripHTMLTags($v_post['content'])) : ''; ?>
                                 </div>
                                 <p><a href="<?= site_url('post/detail/'.$v_post['post_id']); ?>" role="button">อ่านต่อ.. »</a></p>
                             </div>

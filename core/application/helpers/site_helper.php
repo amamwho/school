@@ -42,3 +42,9 @@ if (!function_exists('cutCaption')) {
             return $str;
     }
 }
+
+if (!function_exists('stripHTMLTags')) {
+    function stripHTMLTags($html) {
+        return strip_tags($html);
+    }
+}

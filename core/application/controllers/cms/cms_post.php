@@ -39,12 +39,16 @@ class Cms_post extends Base_cms {
         } else if (isset($_GET) and $_GET) {
             if (isset($_GET['title']) and $_GET['title'])
                 $this->data['filter']['title'] = $like['title'] = $_GET['title'];
+            if (isset($_GET['post_category']))
+                $this->data['filter']['post_category'] = $where['post_category_id'] = $_GET['post_category'];
+            if (isset($_GET['type']))
+                $this->data['filter']['type'] = $where['type'] = $_GET['type'];
             if (isset($_GET['status']))
                 $this->data['filter']['status'] = $where['status'] = $_GET['status'];
         }
         $limit = $this->config->item('pagination_limit');
         $this->data['post_list'] = $this->post_model->getPostAll($where, $like, 'date_added DESC', $limit, $offset);
-        $config['base_url'] = base_url() . 'cms/cms_post/index/';
+        $config['base_url'] = base_url() . 'cms/cms_post/index';
         $config['uri_segment'] = 4;
         $config['num_links'] = $this->config->item('pagination_num_links');
         $config['total_rows'] = $this->post_model->getCountPostAll($where, $like);
@@ -52,6 +56,7 @@ class Cms_post extends Base_cms {
         $config['cur_page'] = $offset + 1;
         $this->pagination->initialize($config);
         $this->data['sub_menu_active'] = 'post';
+        $this->data['post_category'] = $this->getArrayPostCategory();
         $this->view('cms/post/_index', $this->data);
     }
     
@@ -212,4 +217,11 @@ class Cms_post extends Base_cms {
         $this->form_validation->set_rules('sort_order', 'ลำดับการแสดง', 'numeric');
     }
     
+    private function getArrayPostCategory() {
+        $post_category = $this->post_category_model->getPostCategoryAll();
+        foreach ($post_category as $key => $value) {
+            $arr[$value['post_category_id']] = $value;
+        }
+        return $arr;
+    }
 }

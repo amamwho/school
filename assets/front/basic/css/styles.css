@@ -108,14 +108,21 @@ h4.first-category {
 .first-post a {
     color: #fff;
 }
-.second-category h4 {
+.second-category {
+    margin-bottom: 15px;
+}
+.second-category h5 {
     float: left;
-    margin: 0 5px 0;
+    margin: 0 5px 0 0;
 }
 .second-category .glyphicon {
     font-size: 14px;
     margin-right: 5px;
     color: #000;
+}
+.second-category .records {
+    margin-bottom: 10px;
+    font-size: 13px;
 }
 .caption .ani{
     height: 50px;

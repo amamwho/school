@@ -27,6 +27,21 @@
                                 <td class="filter"></td>
                                 <td class="filter"><input type="text" name="title" class="form-control input-sm" id="title" placeholder="คำที่ต้องการค้นหา" <?= (isset($filter['title']) and $filter['title']) ? 'value="' . $filter['title'] . '"' : ''; ?> /></td>
                                 <td class="filter"></td>
+                                <td class="post_category filter">
+                                    <select name="post_category" class="form-control input-sm" id="post_category">
+                                        <option value=""></option>
+                                        <?php foreach ($post_category as $value) { ?>
+                                            <option value="<?= $value['post_category_id']; ?>" <?= (isset($filter['post_category']) and $filter['post_category'] == $value['post_category_id']) ? 'selected="selected"' : ''; ?> ><?= $value['name']; ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </td>
+                                <td class="type filter">
+                                    <select name="type" class="form-control input-sm" id="type">
+                                        <option value=""></option>
+                                        <option value="post" <?= (isset($filter['type']) and $filter['type'] == 'post') ? 'selected="selected"' : ''; ?> >post</option>
+                                        <option value="page"  <?= (isset($filter['type']) and $filter['type'] == 'page') ? 'selected="selected"' : ''; ?> >page</option>
+                                    </select>
+                                </td>
                                 <td class="filter"></td>
                                 <td class="status filter">
                                     <select name="status" class="form-control input-sm" id="status">
@@ -52,6 +67,12 @@
                                     รูป
                                 </th>
                                 <th class="numeric">
+                                    ประเภทโพส
+                                </th>
+                                <th class="numeric">
+                                    ประเภท
+                                </th>
+                                <th class="numeric">
                                     ลำดับการแสดง
                                 </th>
                                 <th class="numeric">
@@ -70,6 +91,8 @@
                                         <td><input type="checkbox" name="post[]" value="<?= $pl['post_id']; ?>" /></td>
                                         <td><?= $pl['title']; ?></td>
                                         <td><?= (isset($pl['image']) and $pl['thumb'] and getImagePath($this->images_path_post . $pl['thumb'])) ? '<img class="index-thumb" src="' . getImagePath($this->images_path_post . $pl['thumb']) . '" />' : '-'; ?></td>
+                                        <td><?= (isset($post_category[$pl['post_category_id']]['name']) and $post_category[$pl['post_category_id']]['name']) ? $post_category[$pl['post_category_id']]['name'] : '-'; ?></td>
+                                        <td><?= $pl['type']; ?></td>
                                         <td><?= $pl['sort_order']; ?></td>
                                         <td class="status"><?= ($pl['status']) ? 'ทำงาน' : 'ไม่ทำงาน'; ?></td>
                                         <td class="status">
@@ -103,7 +126,13 @@
         if($('input#title').val()) {
             current_url += 'title='+$('input#title').val()+'&';
         }
-        if($("select option:selected").val()) {
+        if($("select#post_category option:selected").val()) {
+            current_url += 'post_category='+$("select#post_category option:selected").val()+'&';
+        }
+        if($("select#type option:selected").val()) {
+            current_url += 'type='+$("select#type option:selected").val()+'&';
+        }
+        if($("select#status option:selected").val()) {
             current_url += 'status='+$("select#status option:selected").val()+'&';
         }
         window.location = current_url;

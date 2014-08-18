@@ -26,6 +26,12 @@
                                 <input type="text" class="form-control" name="name" id="name" <?= (isset($staff_category_data['name']) and $staff_category_data['name']) ? 'value="' . $staff_category_data['name'] . '"' : ''; ?>>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="sort_order">ลำดับการแสดง</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="sort_order" id="sort_order" value="<?= (isset($staff_category_data['sort_order']) and $staff_category_data['sort_order']) ? $staff_category_data['sort_order'] : '0'; ?>">
+                            </div>
+                        </div>
                         <div class="form-actions fluid action-full">
                             <div class="col-md-offset-3 col-md-9">
                                 <button type="submit" class="btn green">Submit</button>

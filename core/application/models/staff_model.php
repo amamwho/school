@@ -18,7 +18,7 @@ class Staff_model extends CI_Model {
     public function getStaffCategory() {
         $this->db->select('*');
         $this->db->from($this->staff_category);
-        $this->db->order_by('name', 'asc');
+        $this->db->order_by('sort_order desc, name asc');
         $query = $this->db->get();
         if ($query->num_rows() > 0)
             return $query->result_array();

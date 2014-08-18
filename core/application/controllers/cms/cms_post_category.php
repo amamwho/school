@@ -89,6 +89,7 @@ class Cms_post_category extends Base_cms {
     
     private function setFormValidation() {
         $this->form_validation->set_rules('name', 'ชื่อ*', 'required');
+        $this->form_validation->set_rules('sort_order', 'ลำดับการแสดง', 'numeric');
     }
     
 }

@@ -53,6 +53,7 @@ class Cms_staff extends Base_cms {
             } else {
                 $insert = array(
                     'name' => (isset($_POST['name']) and $_POST['name']) ? $_POST['name'] : '',
+                    'sort_order' => $_POST['sort_order'],
                 );
 
                 $result = $this->staff_model->addStaffCategory($insert);
@@ -78,6 +79,7 @@ class Cms_staff extends Base_cms {
             } else {
                 $insert = array(
                     'name' => (isset($_POST['name']) and $_POST['name']) ? $_POST['name'] : '',
+                    'sort_order' => $_POST['sort_order'],
                 );
 
                 $result = $this->staff_model->editStaffCategory($staff_category_id, $insert);
@@ -280,11 +282,13 @@ class Cms_staff extends Base_cms {
     
     private function setStaffCategoryFormValidation() {
         $this->form_validation->set_rules('name', 'ชื่อ*', 'required');
+        $this->form_validation->set_rules('sort_order', 'ลำดับการแสดง', 'numeric');
     }
     
     private function setStaffFormValidation() {
         $this->form_validation->set_rules('firstname', 'ชื่อ*', 'required');
         $this->form_validation->set_rules('lastname', 'นามสกุล*', 'required');
+        $this->form_validation->set_rules('sort_order', 'ลำดับการแสดง', 'numeric');
     }
     
 }

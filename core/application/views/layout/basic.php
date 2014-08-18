@@ -37,7 +37,7 @@
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="<?= site_url('director'); ?>">ผู้บริหาร</a></li>
+                    <li><a href="<?= site_url('director'); ?>">ทำเนียบผู้บริหาร</a></li>
                     <li><a href="<?= site_url('staff'); ?>">อาจารย์/บุคลากร</a></li>
                     <?php if(isset($menu['main_menu']) and $menu['main_menu']) { ?>
                         <?php foreach ($menu['main_menu'] as $k_menu => $v_menu) { ?>
@@ -92,7 +92,7 @@
                     <div class="panel-body sidebar-banner">
                         <ul class="col-sm-12">
                             <li><a href="<?= base_url(); ?>">หน้าหลัก</a></li>
-                            <li><a href="<?= site_url('director'); ?>">ผู้บริหาร</a></li>
+                            <li><a href="<?= site_url('director'); ?>">ทำเนียบผู้บริหาร</a></li>
                             <li><a href="<?= site_url('staff'); ?>">อาจารย์/บุคลากร</a></li>
                             <li><a href="<?= site_url('document/general'); ?>">เอกสารดาวน์โหลด</a></li>
                             <li><a href="<?= site_url('document/inside'); ?>">เอกสารภายใน</a></li>
